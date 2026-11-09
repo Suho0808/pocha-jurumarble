@@ -635,8 +635,8 @@ html[data-theme=retro] .start{background:repeating-linear-gradient(transparent 0
     <ol>
       <li>1~6명이 할 수 있어요. 판은 한 명(호스트)의 OBS에서 돌리고, 다른 사람 차례엔 호스트가 대신 눌러 줘요.</li><li>캐릭터는 <b>캐릭터 추가 · 설정</b>에서 추가하고, 이름·색·이미지를 바꾸고, 참가할 사람을 체크해요.</li>
       <li>주사위 2개를 굴려 이동해요. 더블이면 한 번 더, 더블 3연속이면 블랙홀로.</li>
-      <li>아직 아무도 안 시킨 안주 칸에 도착하면, 적힌 모금 수만큼 마시고 그 안주를 시킬 수 있어요.</li>
-      <li>다른 사람이 시킨 안주 칸에 도착하면 통행료 미션. 실패하면 안주 가격만큼 벌주.</li>
+      <li>아직 아무도 안 시킨 안주 칸에 도착하면, 안주 한 입 먹고 그 안주를 시킬 수 있어요.</li>
+      <li>다른 사람이 시킨 안주 칸에 도착하면 통행료 미션. 실패하면 벌주 1모금.</li>
       <li>누군가 <b id="lapsTxt">3</b>바퀴를 돌면 끝. 안주를 많이 시킨 사람이 승리, 같으면 덜 마신 사람이 승리.</li>
       <li>진 사람은 술 말고 <b>최종 벌칙</b>을 받아요.</li>
       <li>메인 화면에서 <b>판 종류</b>(설렘 술자리 · 첫 합방 순한맛 · 매운맛 토크 · 시청자 참여 · 절친 폭로전)와 <b>디자인</b>(다꾸 · 포장마차 · 겨울 · 네온 · 레트로)을 골라요. 판 종류는 새 게임 전에만 바꿀 수 있고, 디자인은 언제든 바꿔도 돼요. 텍스트 편집은 판 종류마다 따로 저장돼요.</li>
@@ -739,21 +739,21 @@ const CELLS = [
   {n:'술 권하기',k:'point',d:'고른 사람 1모금'},
   {n:'황금열쇠',k:'key'},
   {n:'초성게임',k:'chosung',d:'막히면 1모금'},
-  {n:'안주',k:'land',p:2,toll:'최근에 질투했던 순간 썰 풀기'},
+  {n:'안주',k:'land',p:1,toll:'최근에 질투했던 순간 썰 풀기'},
   {n:'SAFE 존',k:'service',d:'패스카드 +1'},
-  {n:'안주',k:'land',p:2,toll:'술 마시고 한 최악의 실수 1개 고백'},
+  {n:'안주',k:'land',p:1,toll:'술 마시고 한 최악의 실수 1개 고백'},
   {n:'금지어',k:'option',d:'3턴 동안 발동'},
-  {n:'안주',k:'land',p:2,toll:'3턴 동안 주인을 "자기"라고 부르기'},
+  {n:'안주',k:'land',p:1,toll:'3턴 동안 주인을 "자기"라고 부르기'},
   {n:'미니게임',k:'mini',d:'랜덤 미니게임'},
   {n:'원격 러브샷',k:'love',d:'다 같이 1모금'},
   {n:'칵테일 퍼레이드',k:'cocktail',d:'나만의 칵테일'},
-  {n:'안주',k:'land',p:2,toll:'주인의 연애 질문 1개에 솔직하게 (신상 질문 금지)'},
+  {n:'안주',k:'land',p:1,toll:'주인의 연애 질문 1개에 솔직하게 (신상 질문 금지)'},
   {n:'노래방',k:'song',d:'한 소절만 · 저작권 조심'},
   {n:'택시',k:'taxi',d:'원하는 칸으로'},
   {n:'황금열쇠',k:'key'},
   {n:'물 타임',k:'water',d:'다 같이 물 한 컵'},
   {n:'미니게임',k:'mini',d:'랜덤 미니게임'},
-  {n:'안주',k:'land',p:3,toll:'주인에게 취중 고백 상황극 15초'}
+  {n:'안주',k:'land',p:1,toll:'주인에게 취중 고백 상황극 15초'}
 ];
 const CORNERS = [0,9,14,23];
 const EDITABLE_K = ['land','key','mini','balance','truth','chosung','option','love','song','water','toast','cocktail','point'];
@@ -866,8 +866,8 @@ const FINAL = [
 ];
 const DESC = {
   start:{t:'출발 칸 도착',b:'한 바퀴 돌 때마다 물 한 컵! 잠깐 숨 고르기.'},
-  buy:{b:'마시고 시키면, 다른 사람이 올 때마다 통행료 미션을 시켜요.'},
-  toll:{b:'주인이 인정하면 성공. 실패하면 안주 가격만큼 마셔요.'},
+  buy:{b:'안주 한 입 먹고 시키면, 다른 사람이 올 때마다 통행료 미션을 시켜요.'},
+  toll:{b:'주인이 인정하면 성공. 실패하면 벌주를 마셔요.'},
   balance:{b:'채팅에 1 또는 2로 투표받는 동안, 다들 "채팅이 더 많이 고를 쪽"을 예측해요. 틀린 사람 1모금.'},
   truth:{b:'연애 질문도 OK, 캐릭터로 답해도 돼요. 거부하면 벌주 두 배로 2모금. 본명·나이·사는 곳 같은 신상 질문은 벌주 없이 패스.'},
   chosung:{b:'{나}부터 번갈아 하나씩. 3초 안에 못 대거나 중복이면 짐.'},
@@ -1252,7 +1252,7 @@ function openCellEditor(i){
     <label for="ceName">칸 이름<input id="ceName" value="${esc(c.n)}" maxlength="20"></label>
     ${CORNERS.includes(i) ? `<p class="hint" style="margin:0">모서리 칸(${KIND_NAME[c.k]})은 종류를 바꿀 수 없어요.</p>` : `<label for="ceKind">칸 종류<select id="ceKind">${kindOpts}</select></label>`}
     <label for="ceDesc" id="ceDescL">${c.k==='land' ? '통행료 미션' : '칸에 보이는 설명'}<textarea id="ceDesc" rows="2">${esc(c.k==='land' ? (c.toll||'') : (c.d||''))}</textarea></label>
-    <label for="ceP" id="cePL" ${c.k==='land'?'':'hidden'}>가격 · 실패 벌주<select id="ceP">${[1,2,3].map(v=>`<option value="${v}"${v===(c.p||1)?' selected':''}>${v}모금</option>`).join('')}</select></label>
+    <label for="ceP" id="cePL" ${c.k==='land'?'':'hidden'}>통행료 실패 벌주<select id="ceP">${[1,2,3].map(v=>`<option value="${v}"${v===(c.p||1)?' selected':''}>${v}모금</option>`).join('')}</select></label>
     <div class="acts">${'<button class="act good" id="ceSave">저장</button><button class="act soft" id="ceCancel">닫기</button>'}</div>`;
   $('#board').appendChild(box);
   // 칸 옆, 판 안쪽으로 띄우기
@@ -1327,7 +1327,7 @@ function render(){
     const el = $('#cell'+i);
     const nm = el.querySelector('.nm'), sb = el.querySelector('.sub');
     if (document.activeElement!==nm) nm.textContent = c.n;
-    if (document.activeElement!==sb) sb.textContent = c.k==='land' ? c.p+'모금' : (c.d||'카드 뽑기');
+    if (document.activeElement!==sb) sb.textContent = c.k==='land' ? '한 입' : (c.d||'카드 뽑기');
     const o = S.owners[i], ow = o!==undefined ? S.players[o] : null;
     el.classList.toggle('owned', !!ow);
     if (ow) el.style.setProperty('--oc', ow.color); else el.style.removeProperty('--oc');
@@ -1429,11 +1429,11 @@ function eventHtml(){
     case 'info':
       return `<div class="kind">${esc(ev.tag||'안내')}</div><h3>${esc(ev.title)}</h3><p>${esc(ev.body)}</p><div class="acts">${btn('확인','ok','good')}</div>`;
     case 'buy':
-      return `<div class="kind">아직 아무도 안 시킨 안주</div><h3>${esc(c.n)} · ${c.p}모금</h3><p>${c.p}모금 ${esc(fmt(DESC.buy.b))}</p><p class="q">${esc(c.toll)}</p>
-        <div class="acts">${btn(`시키기 (${c.p}모금)`,'buy','good')}${btn('그냥 지나가기','ok','soft')}</div>`;
+      return `<div class="kind">아직 아무도 안 시킨 안주</div><h3>${esc(c.n)} · 한 입</h3><p>${esc(fmt(DESC.buy.b))}</p><p class="q">${esc(c.toll)}</p>
+        <div class="acts">${btn('한 입 먹고 시키기','buy','good')}${btn('그냥 지나가기','ok','soft')}</div>`;
     case 'toll': {
       const ow = S.players[S.owners[p.pos]];
-      return `<div class="kind">${esc(ow.name)}네 안주</div><h3>통행료: ${esc(c.n)}</h3><p class="q">${esc(c.toll)}</p><p>${esc(fmt(DESC.toll.b))} (${c.p}모금)</p>
+      return `<div class="kind">${esc(ow.name)}네 안주</div><h3>통행료: ${esc(c.n)}</h3><p class="q">${esc(c.toll)}</p><p>${esc(fmt(DESC.toll.b))} (벌주 ${c.p}모금)</p>
         <div class="acts">${btn('미션 성공','ok','good')}${btn(`실패 · ${c.p}모금`,'fail:'+c.p,'bad')}</div>`;
     }
     case 'key':
@@ -1706,7 +1706,7 @@ async function act(a){
     case 'ok': return done();
     case 'new': fresh(); return render();
     case 'reroll': S.result.final = pick(FINAL); return render();
-    case 'buy': S.owners[p.pos] = pi; p.sips += c.p; log(`${p.name} ${c.n} 주문 (${c.p}모금)`); return done();
+    case 'buy': S.owners[p.pos] = pi; log(`${p.name} ${c.n} 주문 (한 입)`); return done();
     case 'fail': return penalize(pi, +x, evReason());
     case 'pf': return penalize(+x, +y, evReason() + ` (${p.name}이(가) 권함)`);
     case 'all1': S.players.forEach(pl => pl.sips++); log(`${allSipLabel(1)}, 짠!`); return done();
