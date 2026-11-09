@@ -10,6 +10,7 @@
 <style>
 :root{
   /* 레이아웃: 1920×1080 방송 화면. 가장자리는 테이프 붙인 메모지 판, 가운데는 버추얼이 뜨는 투명 창 */
+  --wh:#fff;
   --paper:#fbf6ec;
   --grid:#efe4d0;
   --ink:#4b3a3a;
@@ -83,7 +84,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 .cell{cursor:default}
 html.editing .cell .nm,html.editing .cell .sub[data-f="d"],html.editing .bill .name{outline:2px dashed var(--p1);outline-offset:2px;border-radius:4px;cursor:text;background:rgba(255,255,255,.6)}
-html.editing .cell .nm:focus,html.editing .cell .sub:focus,html.editing .bill .name:focus{outline-style:solid;background:#fff}
+html.editing .cell .nm:focus,html.editing .cell .sub:focus,html.editing .bill .name:focus{outline-style:solid;background:var(--wh)}
 .editbar{position:absolute;left:50%;top:44px;transform:translateX(-50%);display:none;font-family:var(--hand);font-weight:700;font-size:24px;background:var(--butter);border:2px solid var(--ink);border-radius:10px;padding:2px 14px;z-index:5;white-space:nowrap}
 html.editing .editbar{display:block}
 html.editing .placeholder{border-color:var(--p1)}
@@ -119,11 +120,11 @@ img.pix,.tokimg.pix,.face.pix{image-rendering:pixelated}
 .tok::after{content:"";position:absolute;left:18%;right:18%;bottom:0;height:12%;border-radius:50%;background:var(--pc);opacity:.75;z-index:-1}
 .tokimg{width:100%;height:100%;object-fit:contain;filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(2px 4px 2px rgba(0,0,0,.25))}
 .toks.many .tok{width:62px;height:62px;margin-left:-30px}
-.cell.owned{background:color-mix(in srgb,var(--oc) 22%,#fff);box-shadow:inset 0 0 0 5px var(--oc),4px 6px 0 rgba(75,58,58,.16)}
+.cell.owned{background:color-mix(in srgb,var(--oc) 22%,var(--wh));box-shadow:inset 0 0 0 5px var(--oc),4px 6px 0 rgba(75,58,58,.16)}
 .cell.owned .owner{color:color-mix(in srgb,var(--oc) 65%,#000)}
-.pchip{border:3px solid var(--ink);border-radius:99px;padding:.25em .9em;font-weight:700;font-size:.9em;background:#fff;box-shadow:2px 2px 0 var(--pc)}
+.pchip{border:3px solid var(--ink);border-radius:99px;padding:.25em .9em;font-weight:700;font-size:.9em;background:var(--wh);box-shadow:2px 2px 0 var(--pc)}
 .pchip.on{background:var(--pc);color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.35);transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
-.act.pc{--n:color-mix(in srgb,var(--pc) 35%,#fff)}
+.act.pc{--n:color-mix(in srgb,var(--pc) 35%,var(--wh))}
 .selq{font-family:var(--hand);font-weight:700;font-size:1.05em;margin:.5em 0 .1em !important;color:var(--soft)}
 .rank{margin:.3em 0 .6em;padding-left:1.3em;font-size:.9em}
 .colR{display:flex;flex-direction:column;min-height:0}
@@ -143,7 +144,7 @@ img.pix,.tokimg.pix,.face.pix{image-rendering:pixelated}
 html.obs .cell::after{display:none}
 .stage.taxi .cell::after{display:none}
 .cell.editing-cell{outline:4px solid var(--p1);outline-offset:3px;z-index:6}
-.cedit{position:absolute;width:440px;z-index:30;background:#fff;border:3px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--pink);padding:16px 18px;display:flex;flex-direction:column;gap:10px;font-size:17px}
+.cedit{position:absolute;width:440px;z-index:30;background:var(--wh);border:3px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--pink);padding:16px 18px;display:flex;flex-direction:column;gap:10px;font-size:17px}
 .cedit .ce-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .cedit .ce-h b{font-family:var(--display);font-weight:400;font-size:24px}
 .cedit .hint{font-size:16px}
@@ -153,32 +154,32 @@ html.obs .cell::after{display:none}
 .cedit textarea{resize:vertical;min-height:58px}
 .cedit .act{font-size:17px}
 
-.start{position:absolute;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+.start{position:absolute;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
   background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/28px 28px,var(--paper);border-radius:22px}
 .start[hidden]{display:none}
-.st-logo{font-family:var(--display);font-size:150px;line-height:1;position:relative;animation:drop .7s cubic-bezier(.3,1.5,.5,1) both}
+.st-logo{font-family:var(--display);font-size:120px;line-height:1;position:relative;animation:drop .7s cubic-bezier(.3,1.5,.5,1) both}
 .st-logo::before{content:"";position:absolute;top:-18px;width:170px;height:40px;background:repeating-linear-gradient(45deg,var(--pink) 0 12px,#ffe0e8 12px 24px);opacity:.9}
 .st-logo::before{left:-40px;transform:rotate(-12deg)}
 .st-logo::after{display:none}
 .st-a{display:inline-block;background:var(--butter);padding:0 .12em;border-radius:.12em;transform:rotate(-4deg);box-shadow:8px 8px 0 #e9d06a}
 .st-b{display:inline-block;-webkit-text-stroke:0;text-shadow:7px 7px 0 var(--pink)}
-.st-sub{margin:-6px 0 0;font-family:var(--hand);font-weight:700;font-size:40px;color:var(--soft);background:#fff;border:3px solid var(--ink);border-radius:99px;padding:0 26px;transform:rotate(2deg);box-shadow:4px 4px 0 var(--lime)}
-.st-line{display:flex;gap:30px;align-items:flex-end;min-height:220px;margin-top:6px}
+.st-sub{margin:-6px 0 0;font-family:var(--hand);font-weight:700;font-size:40px;color:var(--soft);background:var(--wh);border:3px solid var(--ink);border-radius:99px;padding:0 26px;transform:rotate(2deg);box-shadow:4px 4px 0 var(--lime)}
+.st-line{display:flex;gap:30px;align-items:flex-end;min-height:170px;margin-top:2px}
 .st-ch{display:flex;flex-direction:column;align-items:center;gap:8px;animation:hop2 1.1s ease-in-out infinite;animation-delay:calc(var(--k)*.15s)}
-.st-ch .im{width:170px;height:170px;display:grid;place-items:center}
+.st-ch .im{width:130px;height:130px;display:grid;place-items:center}
 .st-ch img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(3px 6px 2px rgba(0,0,0,.2))}
 .st-ch .initial{width:120px;height:120px;font-size:56px}
-.st-ch b{font-family:var(--display);font-weight:400;font-size:30px;background:#fff;border:3px solid var(--ink);border-radius:12px;padding:0 14px;box-shadow:4px 4px 0 var(--pc)}
+.st-ch b{font-family:var(--display);font-weight:400;font-size:30px;background:var(--wh);border:3px solid var(--ink);border-radius:12px;padding:0 14px;box-shadow:4px 4px 0 var(--pc)}
 @keyframes hop2{0%,100%{transform:translateY(0)}40%{transform:translateY(-22px) rotate(-3deg)}60%{transform:translateY(-22px) rotate(3deg)}}
 @keyframes drop{0%{transform:translateY(-120px) scale(.8);opacity:0}100%{transform:none;opacity:1}}
 .st-hint{margin:0;font-family:var(--hand);font-weight:700;font-size:26px;color:var(--soft)}
 .st-pool{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:1500px}
-.st-pick{display:flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:99px;background:#fff;padding:4px 18px 4px 6px;font-size:22px;font-weight:700;box-shadow:3px 3px 0 var(--pc);opacity:.55}
-.st-pick.on{opacity:1;background:color-mix(in srgb,var(--pc) 25%,#fff)}
+.st-pick{display:flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:99px;background:var(--wh);padding:4px 18px 4px 6px;font-size:22px;font-weight:700;box-shadow:3px 3px 0 var(--pc);opacity:.55}
+.st-pick.on{opacity:1;background:color-mix(in srgb,var(--pc) 25%,var(--wh))}
 .st-pick img,.st-pick .initial{width:44px;height:44px;object-fit:contain;font-size:20px;border-width:2px}
 .st-ctrl{display:flex;align-items:center;gap:18px;margin-top:6px}
 .st-ctrl label{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:26px}
-.st-ctrl select{font:inherit;font-size:22px;border:3px solid var(--ink);border-radius:12px;padding:4px 10px;background:#fff}
+.st-ctrl select{font:inherit;font-size:22px;border:3px solid var(--ink);border-radius:12px;padding:4px 10px;background:var(--wh)}
 .st-ctrl .ghost{font-size:22px;border-width:3px}
 .st-go{flex:none;font-size:46px;padding:14px 56px;animation:pulse2 1.4s ease-in-out infinite}
 @keyframes pulse2{50%{transform:scale(1.05) rotate(-1deg)}}
@@ -217,7 +218,7 @@ html.obs .cell::after{display:none}
 @keyframes pslide{0%{transform:translateX(0);opacity:1}100%{transform:translateX(2100px);opacity:1}}
 .pt.drop,.pt.bubble{-webkit-text-stroke:0}
 .pt.drop i{display:block;width:30px;height:30px;background:var(--fc);border:3px solid var(--ink);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
-.pt.bubble i{display:block;width:var(--sz);height:var(--sz);border:3px solid var(--ink);border-radius:50%;background:color-mix(in srgb,var(--fc) 45%,#fff);box-shadow:inset -5px -5px 0 rgba(255,255,255,.6)}
+.pt.bubble i{display:block;width:var(--sz);height:var(--sz);border:3px solid var(--ink);border-radius:50%;background:color-mix(in srgb,var(--fc) 45%,var(--wh));box-shadow:inset -5px -5px 0 rgba(255,255,255,.6)}
 .cell.hit{animation:cellhit .75s cubic-bezier(.3,1.6,.5,1);z-index:5}
 @keyframes cellhit{0%{transform:scale(1)}30%{transform:scale(1.16) rotate(-3deg);box-shadow:0 0 0 6px var(--hc),0 0 36px var(--hc)}100%{transform:scale(1)}}
 
@@ -247,17 +248,17 @@ html.obs .cell::after{display:none}
 .gulp{position:absolute;top:-6px;left:50%;font-family:var(--display);font-weight:400;font-size:46px;color:#fff;-webkit-text-stroke:6px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--pc);white-space:nowrap;opacity:0;z-index:3}
 .drink.go .gulp{animation:gulp 1.7s ease both}
 @keyframes gulp{0%,38%{opacity:0;transform:translate(-50%,10px) scale(.5)}46%{opacity:1;transform:translate(-50%,-10px) scale(1.15) rotate(-6deg)}58%{transform:translate(-50%,-14px) scale(.95) rotate(4deg)}70%{opacity:1;transform:translate(-50%,-16px) scale(1.08) rotate(-3deg)}100%{opacity:0;transform:translate(-50%,-40px)}}
-.dk-n{font-family:var(--display);font-size:30px;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:2px 16px;box-shadow:4px 4px 0 var(--pc);white-space:nowrap}
+.dk-n{font-family:var(--display);font-size:30px;background:var(--wh);border:3px solid var(--ink);border-radius:14px;padding:2px 16px;box-shadow:4px 4px 0 var(--pc);white-space:nowrap}
 .dk-n em{font-style:normal;color:#e45a80}
 .drink.go .dk-n{animation:fxpop2 .5s .9s cubic-bezier(.3,1.7,.5,1) both}
 @keyframes fxpop2{0%{transform:scale(0)}100%{transform:scale(1) rotate(-2deg)}}
 .bill .avatar.gulping{animation:lean 1.7s ease-in-out}
 
 .logo{position:relative}
-.logo .credit{position:absolute;left:100%;top:50%;margin-left:12px;translate:0 -50%;font-family:var(--display);font-size:17px;line-height:1;color:var(--ink);background:#fff;border:2.5px solid var(--ink);border-radius:99px;padding:3px 10px;transform:rotate(5deg);box-shadow:2px 2px 0 var(--cyan);letter-spacing:.03em;white-space:nowrap}
-.st-credit{position:absolute;right:34px;bottom:28px;margin:0;font-family:var(--display);font-size:26px;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:99px;padding:4px 18px;transform:rotate(-3deg);box-shadow:4px 4px 0 var(--cyan);letter-spacing:.03em}
+.logo .credit{position:absolute;left:100%;top:50%;margin-left:12px;translate:0 -50%;font-family:var(--display);font-size:17px;line-height:1;color:var(--ink);background:var(--wh);border:2.5px solid var(--ink);border-radius:99px;padding:3px 10px;transform:rotate(5deg);box-shadow:2px 2px 0 var(--cyan);letter-spacing:.03em;white-space:nowrap}
+.st-credit{position:absolute;right:34px;bottom:28px;margin:0;font-family:var(--display);font-size:26px;color:var(--ink);background:var(--wh);border:3px solid var(--ink);border-radius:99px;padding:4px 18px;transform:rotate(-3deg);box-shadow:4px 4px 0 var(--cyan);letter-spacing:.03em}
 
-.st-online{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;font-size:22px;max-width:1500px;background:#fff;border:3px dashed var(--ink);border-radius:18px;padding:12px 22px}
+.st-online{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;font-size:22px;max-width:1500px;background:var(--wh);border:3px dashed var(--ink);border-radius:18px;padding:12px 22px}
 .st-online b{font-family:var(--display);font-weight:400;font-size:26px}
 .st-online input{font:inherit;font-size:24px;width:140px;text-transform:uppercase;letter-spacing:.2em;text-align:center;border:3px solid var(--ink);border-radius:12px;padding:4px 8px;background:var(--paper)}
 .st-online .ghost{font-size:20px;border-width:3px}
@@ -265,14 +266,61 @@ html.obs .cell::after{display:none}
 .st-online .code{font-family:var(--display);font-size:40px;letter-spacing:.15em;background:var(--butter);padding:0 14px;border-radius:10px;box-shadow:3px 3px 0 #e9d06a}
 .on-msg{font-family:var(--hand);font-weight:700;color:#d94c74;font-size:22px}
 .on-note{font-family:var(--hand);font-weight:700;color:var(--soft);font-size:22px}
-.seat{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--ink);border-radius:99px;background:#fff;padding:2px 14px 2px 4px;font-size:20px;font-weight:700;box-shadow:2px 2px 0 var(--pc)}
+.seat{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--ink);border-radius:99px;background:var(--wh);padding:2px 14px 2px 4px;font-size:20px;font-weight:700;box-shadow:2px 2px 0 var(--pc)}
 .seat img,.seat .initial{width:36px;height:36px;object-fit:contain;font-size:16px;border-width:2px}
-.seat.mine{background:color-mix(in srgb,var(--pc) 35%,#fff)}
+.seat.mine{background:color-mix(in srgb,var(--pc) 35%,var(--wh))}
 .seat.taken{opacity:.5}
 .seat small{font-size:14px;color:var(--soft)}
 .onchip{font-family:var(--display);font-size:15px;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:3px 12px;white-space:nowrap}
 .ev.locked .acts,.ev.locked .pchip{pointer-events:none;opacity:.45}
 .locknote{margin:0 0 .4em !important;font-family:var(--hand);font-weight:700;font-size:1.05em;color:#d94c74}
+
+.sheet.edsheet{width:min(1100px,96vw);max-height:92vh;padding:0;gap:0;overflow:hidden}
+.ed-top{display:flex;justify-content:space-between;align-items:center;padding:18px 24px 6px}
+.ed-help{margin:0;padding:0 24px 10px;color:var(--soft);font-size:15px}
+.ed-pane .ed-help{padding:0 0 12px}
+.ed-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:0 24px;border-bottom:2px solid var(--grid)}
+.ed-tab{border:2px solid var(--ink);border-bottom:0;border-radius:12px 12px 0 0;background:var(--wh);padding:8px 16px;font-family:var(--display);font-size:17px;color:var(--soft);margin-bottom:-2px}
+.ed-tab.on{background:var(--butter);color:var(--ink)}
+.ed-body{overflow:auto;padding:18px 24px;flex:1;min-height:0;max-height:62vh;background:var(--paper)}
+.ed-pane{display:none}
+.ed-pane.on{display:block}
+.ecards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ecard{background:var(--wh);border:2px solid var(--ink);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;border-top:8px solid var(--amber)}
+.ecard.k-key{border-top-color:#e8c74a}
+.ecard.k-land{border-top-color:#f0b48a}
+.ecard.k-start,.ecard.k-taxi{border-top-color:var(--cyan)}
+.ecard.k-jail,.ecard.k-service{border-top-color:var(--red)}
+.ecard.k-balance,.ecard.k-truth,.ecard.k-chosung,.ecard.k-option,.ecard.k-love,.ecard.k-song,.ecard.k-water,.ecard.k-toast,.ecard.k-cocktail,.ecard.k-point{border-top-color:#b9a4f0}
+.ec-h{display:flex;gap:6px;align-items:center}
+.ec-no{font-family:var(--display);font-size:18px;min-width:26px}
+.ed .ec-h select{width:auto;padding:3px 6px}
+.ed .ec-name{font-family:var(--display);font-size:20px}
+.ed textarea{font-size:15px;line-height:1.5}
+.ed-lab{display:flex;flex-direction:column;gap:6px;font-family:var(--display);font-size:19px;color:var(--ink)}
+.ed-lab small{font-family:var(--body);font-size:14px;color:var(--soft)}
+.ed-lab textarea{min-height:240px}
+.ed-lab textarea.big{min-height:52vh}
+.ed-foot{display:flex;gap:12px;align-items:center;padding:14px 24px;border-top:2px solid var(--grid);background:var(--wh)}
+#edDesc .desc-row{background:var(--wh);border:2px solid var(--ink);border-radius:12px;padding:10px 12px}
+
+.pour{display:flex;justify-content:center;margin:6px 0 10px}
+.pglass{position:relative;width:90px;height:150px;border:4px solid var(--ink);border-top-width:3px;border-radius:0 0 14px 14px;background:var(--wh);overflow:hidden;clip-path:polygon(0 0,100% 0,90% 100%,10% 100%)}
+.pband{position:absolute;left:0;right:0;bottom:72%;height:14%;background:repeating-linear-gradient(45deg,rgba(63,174,120,.35) 0 6px,rgba(63,174,120,.15) 6px 12px);border-top:3px dashed #3fae78;border-bottom:3px dashed #3fae78;z-index:2}
+.pfill{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(#e6f8ee,#bfe8d4);height:0}
+.roul{position:relative;width:240px;height:240px;margin:8px auto 12px}
+.rwheel{width:100%;height:100%;border-radius:50%;border:4px solid var(--ink);position:relative;box-shadow:4px 4px 0 var(--ink)}
+.rwheel.spin{transition:transform 3.2s cubic-bezier(.15,.85,.2,1)}
+.rl{position:absolute;left:50%;top:50%;width:90px;margin:-11px 0 0 -45px;text-align:center;font-family:var(--display);font-size:16px;line-height:22px;color:var(--ink);text-shadow:0 0 3px #fff,0 0 3px #fff}
+.rpin{position:absolute;left:50%;top:-14px;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:26px solid var(--ink);z-index:3}
+.cups{position:relative;height:120px;width:330px;margin:10px auto}
+.cup{position:absolute;left:0;bottom:0;width:90px;height:100px;transform:translateX(var(--x));transition:transform .3s ease;border:0;background:none;padding:0}
+.cup::before{content:"";position:absolute;inset:0;background:#ff9fb6;border:4px solid var(--ink);clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);border-radius:6px;z-index:2;transition:transform .3s}
+.cup .ball{position:absolute;left:50%;bottom:6px;width:34px;height:34px;margin-left:-17px;border-radius:50%;background:#5cc48a;border:3px solid var(--ink);opacity:0}
+.cup.hasball .ball{opacity:1}
+.cup.hasball::before,.cup.picked::before{transform:translateY(-60px)}
+.cup[data-a]{cursor:pointer}
+.cup[data-a]:hover::before{filter:brightness(1.08)}
 
 /* 가운데 창 */
 .hole{grid-area:2/2/6/10;position:relative;margin:6px}
@@ -280,35 +328,35 @@ html.obs .cell::after{display:none}
   background:repeating-conic-gradient(#f7efe0 0 25%,#fffaf1 0 50%) 0 0/40px 40px;color:#c7b190;font-family:var(--hand);font-weight:700;font-size:36px;line-height:1.3}
 .placeholder small{display:block;font-size:24px}
 .logo{align-self:flex-start;transform:rotate(-2deg);font-family:var(--display);font-size:38px;line-height:1;
-  background:#fff;border:3px solid var(--ink);border-radius:16px;padding:8px 20px;box-shadow:5px 5px 0 var(--pink);white-space:nowrap;z-index:2}
+  background:var(--wh);border:3px solid var(--ink);border-radius:16px;padding:8px 20px;box-shadow:5px 5px 0 var(--pink);white-space:nowrap;z-index:2}
 .logo span{background:var(--butter);padding:0 .12em;border-radius:.15em}
 .gears{position:absolute;left:50%;top:0;transform:translateX(-50%);display:flex;gap:8px;z-index:5}
 .gears .gear{position:static;transform:none}
-.gear{position:absolute;left:50%;top:0;transform:translateX(-50%);opacity:.35;font-size:15px;border:2px solid var(--ink);background:#fff;border-radius:99px;padding:4px 12px;z-index:5}
+.gear{position:absolute;left:50%;top:0;transform:translateX(-50%);opacity:.35;font-size:15px;border:2px solid var(--ink);background:var(--wh);border-radius:99px;padding:4px 12px;z-index:5}
 .gear:hover{opacity:1}
 
 /* 계산서 */
-.bill{--c:var(--p1);position:relative;display:flex;gap:14px;align-items:flex-start;background:#fff;border:3px solid var(--ink);border-radius:20px;padding:14px 16px;
-  box-shadow:5px 5px 0 color-mix(in srgb,var(--c) 70%,#fff);transition:transform .25s;z-index:2}
+.bill{--c:var(--p1);position:relative;display:flex;gap:14px;align-items:flex-start;background:var(--wh);border:3px solid var(--ink);border-radius:20px;padding:14px 16px;
+  box-shadow:5px 5px 0 color-mix(in srgb,var(--c) 70%,var(--wh));transition:transform .25s;z-index:2}
 .bill.b1{--c:var(--p2)}
 .bill.now{transform:rotate(-1.5deg) scale(1.03);box-shadow:7px 7px 0 var(--c)}
 .bill.b1.now{transform:rotate(1.5deg) scale(1.03)}
 .tagx{position:absolute;right:16px;top:-20px;font-family:var(--hand);font-weight:700;font-size:24px;background:var(--butter);padding:0 12px;transform:rotate(4deg);border-radius:6px;box-shadow:2px 2px 0 #e9d06a}
-.avatar{width:84px;height:84px;image-rendering:pixelated;border-radius:50%;background:color-mix(in srgb,var(--c) 25%,#fff);border:3px solid var(--ink);flex:none}
+.avatar{width:84px;height:84px;image-rendering:pixelated;border-radius:50%;background:color-mix(in srgb,var(--c) 25%,var(--wh));border:3px solid var(--ink);flex:none}
 .info{flex:1;min-width:0}
 .name{font-family:var(--display);font-size:34px;line-height:1.05}
 .drunk{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;margin:4px 0 2px}
-.amt{font-family:var(--display);font-weight:400;font-size:28px;line-height:1;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--c) 45%,#fff) 55%);padding:0 4px}
+.amt{font-family:var(--display);font-weight:400;font-size:28px;line-height:1;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--c) 45%,var(--wh)) 55%);padding:0 4px}
 .glasses{display:flex;flex-wrap:wrap;gap:3px;align-items:flex-end}
 .glasses em{font-style:normal;font-family:var(--hand);font-weight:700;font-size:20px}
 .g{--f:0%;width:18px;height:23px;display:inline-block;border:2.5px solid var(--ink);border-top-width:2px;clip-path:polygon(0 0,100% 0,85% 100%,15% 100%);
-  background:linear-gradient(to top,#a8e0c3 var(--f),#fff var(--f))}
+  background:linear-gradient(to top,#a8e0c3 var(--f),var(--wh) var(--f))}
 .g.full{--f:100%}
 .stats{font-size:15px;color:var(--soft);white-space:nowrap}
 .stats b{color:var(--ink);font-family:var(--display);font-weight:400;font-size:19px}
 .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.mini{border:2px solid var(--ink);background:#fff;border-radius:99px;padding:2px 12px;font-size:15px}
-.mini:hover{background:color-mix(in srgb,var(--c) 25%,#fff)}
+.mini{border:2px solid var(--ink);background:var(--wh);border-radius:99px;padding:2px 12px;font-size:15px}
+.mini:hover{background:color-mix(in srgb,var(--c) 25%,var(--wh))}
 
 /* 아래 독 */
 .col{position:absolute;top:0;bottom:0;width:420px;display:flex;flex-direction:column;gap:20px;z-index:2}
@@ -318,14 +366,14 @@ html.obs .cell::after{display:none}
 #ev{margin-top:auto;min-height:0}
 #ev .ev{max-height:560px;overflow:auto;font-size:20px;padding:20px 22px 16px}
 .stats{white-space:normal !important;line-height:1.5}
-.ctrl{background:#fff;border:3px solid var(--ink);border-radius:20px;padding:14px 18px;box-shadow:5px 5px 0 var(--cyan);display:flex;flex-direction:column;gap:10px}
+.ctrl{background:var(--wh);border:3px solid var(--ink);border-radius:20px;padding:14px 18px;box-shadow:5px 5px 0 var(--cyan);display:flex;flex-direction:column;gap:10px}
 .turn{font-family:var(--display);font-size:32px;line-height:1.1;display:flex;align-items:center;gap:8px}
 .turn .face{width:52px;height:52px;image-rendering:pixelated}
 .turn .who0{color:#e45a80}
 .turn .who1{color:#3c86dc}
 .drow{display:flex;align-items:center;gap:12px}
 .dice{display:flex;gap:8px}
-.die{width:54px;height:54px;background:#fff;border-radius:22%;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);padding:6px;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--pink)}
+.die{width:54px;height:54px;background:var(--wh);border-radius:22%;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);padding:6px;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--pink)}
 .die:nth-child(2){box-shadow:3px 3px 0 var(--cyan)}
 .die i,.bd i{width:78%;height:78%;border-radius:50%;place-self:center}
 .die i.on,.bd i.on{background:var(--ink)}
@@ -338,27 +386,27 @@ html.obs .cell::after{display:none}
 .chips:empty{display:none}
 .chip{background:var(--butter);border-radius:5px;padding:0 10px;font-size:20px;font-family:var(--hand);font-weight:700;transform:rotate(-1.5deg)}
 
-.ev{--n:var(--violet);background:#fff;border-radius:10px;padding:22px 26px 18px;position:relative;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--n);font-size:22px}
+.ev{--n:var(--violet);background:var(--wh);border-radius:10px;padding:22px 26px 18px;position:relative;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--n);font-size:22px}
 .ev::before{content:"";position:absolute;left:50%;top:-14px;width:30%;height:26px;transform:translateX(-50%) rotate(-2deg);
-  background:repeating-linear-gradient(45deg,var(--n) 0 9px,color-mix(in srgb,var(--n) 45%,#fff) 9px 18px);border-radius:3px}
+  background:repeating-linear-gradient(45deg,var(--n) 0 9px,color-mix(in srgb,var(--n) 45%,var(--wh)) 9px 18px);border-radius:3px}
 .ev .kind{font-family:var(--hand);font-weight:700;font-size:1.1em;color:var(--soft);line-height:1}
 .ev h3{font-family:var(--display);font-weight:400;font-size:1.65em;margin:.15em 0 .25em;line-height:1.2;text-wrap:balance}
 .ev p{margin:.15em 0 .5em;line-height:1.45}
-.ev .q{font-weight:700;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--n) 80%,#fff) 55%);display:inline;padding:0 .15em}
+.ev .q{font-weight:700;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--n) 80%,var(--wh)) 55%);display:inline;padding:0 .15em}
 .ev .q + *{margin-top:.7em}
 .ev .hint{font-size:.95em}
 .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:.4em}
-.act{--n:#fff;border:3px solid var(--ink);border-radius:99px;padding:.32em .95em;font-weight:700;font-size:.9em;background:var(--n);box-shadow:3px 3px 0 var(--ink)}
+.act{--n:var(--wh);border:3px solid var(--ink);border-radius:99px;padding:.32em .95em;font-weight:700;font-size:.9em;background:var(--n);box-shadow:3px 3px 0 var(--ink)}
 .act:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 .act.good{--n:var(--lime)}
 .act.bad{--n:var(--pink)}
-.act.soft{--n:#fff}
+.act.soft{--n:var(--wh)}
 
 /* 주사위 던지기 */
 .throw{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:60px;pointer-events:none;opacity:0;z-index:6}
 .throw.show{opacity:1}
 .throw.out{opacity:0;transform:scale(.85);transition:opacity .25s,transform .25s}
-.bd{width:180px;height:180px;background:#fff;border-radius:24%;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);padding:22px;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--pink)}
+.bd{width:180px;height:180px;background:var(--wh);border-radius:24%;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);padding:22px;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--pink)}
 .bd:nth-child(2){box-shadow:8px 8px 0 var(--cyan)}
 .throw.show .bd:nth-child(1){animation:toss1 .82s cubic-bezier(.25,.8,.35,1) both}
 .throw.show .bd:nth-child(2){animation:toss2 .82s cubic-bezier(.25,.8,.35,1) .06s both}
@@ -381,7 +429,7 @@ html.obs .cell::after{display:none}
 .evm{display:none}
 @media (max-width:900px){.evm{display:block;max-width:620px;margin:14px auto 0;padding:0 20px}.evm .ev{font-size:16px}}
 .below{max-width:1600px;margin:0 auto;padding:22px 20px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.below section{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:18px 20px;box-shadow:5px 5px 0 var(--sh,var(--lime))}
+.below section{background:var(--wh);border:2px solid var(--ink);border-radius:14px;padding:18px 20px;box-shadow:5px 5px 0 var(--sh,var(--lime))}
 .below h2{font-family:var(--display);font-weight:400;font-size:24px;margin:0 0 10px;display:inline-block;background:linear-gradient(transparent 58%,var(--butter) 58%);padding:0 .2em}
 .below ol,.below ul{margin:0;padding-left:1.3em}
 .below li{margin:4px 0}
@@ -391,7 +439,7 @@ html.obs .cell::after{display:none}
 .log li{padding:5px 0;border-bottom:1.5px dotted #eadbc3;color:var(--soft);margin:0}
 .log li:first-child{color:var(--ink);font-weight:700}
 .tools{display:flex;gap:10px;flex-wrap:wrap}
-.ghost{background:#fff;border:2px solid var(--ink);border-radius:99px;padding:.45em 1.1em;font-size:.95em;box-shadow:3px 3px 0 var(--cyan)}
+.ghost{background:var(--wh);border:2px solid var(--ink);border-radius:99px;padding:.45em 1.1em;font-size:.95em;box-shadow:3px 3px 0 var(--cyan)}
 .ghost:hover{background:#f4faff}
 .ghost.hot{background:var(--pink);box-shadow:3px 3px 0 var(--ink)}
 table{border-collapse:collapse;width:100%;font-size:14.5px}
@@ -412,7 +460,7 @@ html.obs #fit{max-width:none;padding:0;margin:0}
 /* 설정 */
 .modal{position:fixed;inset:0;background:rgba(75,58,58,.35);display:none;place-items:center;padding:16px;z-index:20}
 .modal.open{display:grid}
-.sheet{background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--pink);padding:22px;width:min(520px,100%);max-height:90vh;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.sheet{background:var(--wh);border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--pink);padding:22px;width:min(520px,100%);max-height:90vh;overflow:auto;display:flex;flex-direction:column;gap:12px}
 .sheet h2{font-family:var(--display);font-weight:400;margin:0;font-size:28px}
 .sheet label{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--soft)}
 .sheet input,.sheet select,.sheet textarea{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);border-radius:8px;padding:8px 10px;font:inherit}
@@ -421,6 +469,88 @@ html.obs #fit{max-width:none;padding:0;margin:0}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+
+/* ===== 디자인 테마 ===== */
+/* 포장마차: 주황 천막, 빨강·흰 줄무늬 테이프 */
+html[data-theme=pocha]{--paper:#fff3e3;--grid:#f6d9b6;--ink:#4a2a1e;--soft:#8c5a43;--card:#fffaf2;--wh:#fffdf9;--pink:#ff9b7a;--cyan:#ffcf8a;--amber:#ffb36b;--lime:#f6d06a;--violet:#ffb9a6;--red:#ff8a66;--butter:#ffe08a;--p1:#ff5a36;--p2:#2f80ff}
+html[data-theme=pocha] .cell::before,html[data-theme=pocha] .cell:nth-of-type(3n)::before,html[data-theme=pocha] .cell:nth-of-type(4n)::before{background:repeating-linear-gradient(90deg,#e8473a 0 10px,#fff6ec 10px 20px);opacity:.95}
+html[data-theme=pocha] .cell.land{background:var(--card) repeating-linear-gradient(transparent 0 31px,#f6dcc0 31px 32px);background-position:0 18px}
+html[data-theme=pocha] .ev::before{background:repeating-linear-gradient(90deg,#e8473a 0 12px,#fff6ec 12px 24px)}
+html[data-theme=pocha] .st-logo::before{background:repeating-linear-gradient(90deg,#e8473a 0 14px,#fff6ec 14px 28px)}
+html[data-theme=pocha] .st-a{background:#ff6a3d;color:#fff8ee;box-shadow:8px 8px 0 #b8341c}
+html[data-theme=pocha] .st-b{text-shadow:7px 7px 0 #ffb36b}
+html[data-theme=pocha] .start{background:radial-gradient(circle at 50% 0,rgba(255,200,120,.55),transparent 60%),repeating-linear-gradient(90deg,#fff1df 0 60px,#ffe6c9 60px 120px)}
+
+/* 겨울 눈꽃: 하늘색, 눈 결정 무늬 */
+html[data-theme=winter]{--paper:#eef6ff;--grid:#d8e8fa;--ink:#2b3c5a;--soft:#6a7fa2;--card:#fbfdff;--wh:#fff;--pink:#ffc9de;--cyan:#bfe2ff;--amber:#d6e7ff;--lime:#d2f2ec;--violet:#dcd5ff;--red:#c8dbff;--butter:#e4f2ff;--p1:#4f97ff;--p2:#ff6fa8}
+html[data-theme=winter] .cell{background-image:radial-gradient(circle,rgba(140,185,240,.35) 1.6px,transparent 2.6px);background-size:24px 24px}
+html[data-theme=winter] .cell.land{background:var(--card) radial-gradient(circle,rgba(140,185,240,.35) 1.6px,transparent 2.6px) 0 0/24px 24px}
+html[data-theme=winter] .cell::before,html[data-theme=winter] .cell:nth-of-type(3n)::before,html[data-theme=winter] .cell:nth-of-type(4n)::before{background:repeating-linear-gradient(45deg,rgba(170,210,255,.9) 0 8px,rgba(240,248,255,.95) 8px 16px)}
+html[data-theme=winter] .cell .no::before{content:"❄ ";color:#9cc4f2}
+html[data-theme=winter] .st-a{background:#cfe6ff;box-shadow:8px 8px 0 #8fb8ea}
+html[data-theme=winter] .st-b{text-shadow:7px 7px 0 #a9d2ff}
+html[data-theme=winter] .st-logo::before{background:repeating-linear-gradient(45deg,#9cc8ff 0 12px,#eef6ff 12px 24px)}
+html[data-theme=winter] .start{background:radial-gradient(circle,#fff 2px,transparent 3px) 0 0/46px 46px,radial-gradient(circle,#dbeaff 3px,transparent 4px) 23px 23px/46px 46px,linear-gradient(#e3f0ff,#f7fbff)}
+
+/* 네온 밤: 어두운 판, 빛나는 테두리 */
+html[data-theme=neon]{--paper:#130d22;--grid:#221a3a;--ink:#f3eaff;--soft:#b6a6d6;--card:#1d1533;--wh:#1d1533;--pink:#ff3d8b;--cyan:#21c8f5;--amber:#ff9440;--lime:#2fd982;--violet:#8f5cff;--red:#ff5470;--butter:#5b2a86;--p1:#ff4fa0;--p2:#35c2ff;color-scheme:dark}
+html[data-theme=neon] .cell{background:color-mix(in srgb,var(--n) 20%,#170f2b);box-shadow:0 0 0 2px var(--n),0 0 18px color-mix(in srgb,var(--n) 55%,transparent),inset 0 0 22px color-mix(in srgb,var(--n) 18%,transparent)}
+html[data-theme=neon] .cell:not(.key):not(.mission):not(.corner):not(.c0):not(.c23){--n:#ff4fa0}
+html[data-theme=neon] .cell.land{background:color-mix(in srgb,#ff4fa0 12%,#170f2b)}
+html[data-theme=neon] .cell.owned{background:color-mix(in srgb,var(--oc) 30%,#170f2b);box-shadow:0 0 0 4px var(--oc),0 0 24px var(--oc)}
+html[data-theme=neon] .cell.owned .owner{color:color-mix(in srgb,var(--oc) 60%,#fff)}
+html[data-theme=neon] .cell::before{display:none}
+html[data-theme=neon] .cell .nm{text-shadow:0 0 8px color-mix(in srgb,var(--n) 80%,transparent)}
+html[data-theme=neon] .cell .no{color:rgba(255,255,255,.35)}
+html[data-theme=neon] .cell.key .nm::after{color:#ffe14d}
+html[data-theme=neon] .ev,html[data-theme=neon] .bill,html[data-theme=neon] .ctrl,html[data-theme=neon] .logo{box-shadow:0 0 0 1px var(--n,var(--p1)),0 0 22px color-mix(in srgb,var(--n,var(--p1)) 45%,transparent)}
+html[data-theme=neon] .ev::before{display:none}
+html[data-theme=neon] .die,html[data-theme=neon] .bd{background:#fff;--ink:#241a3a}
+html[data-theme=neon] .rollbtn{color:#fff;box-shadow:0 0 18px var(--pink)}
+html[data-theme=neon] .rollbtn:hover:not(:disabled){background:#ff6aa8}
+html[data-theme=neon] .ghost:hover{background:#2a2048}
+html[data-theme=neon] .st-a{background:#ff3d8b;color:#fff;box-shadow:0 0 30px #ff3d8b}
+html[data-theme=neon] .st-b{color:#fff;text-shadow:0 0 12px #35c2ff,0 0 32px #35c2ff}
+html[data-theme=neon] .st-logo::before{display:none}
+html[data-theme=neon] .start{background:radial-gradient(circle at 50% 40%,#2a1650,#0e0a1a 70%)}
+html[data-theme=neon] .st-ch img{filter:drop-shadow(0 0 10px rgba(255,255,255,.5))}
+html[data-theme=neon] .placeholder{border-color:#3a2d5c;background:#130d22;color:#6e5c96}
+html[data-theme=neon] .log li,html[data-theme=neon] th,html[data-theme=neon] td{border-bottom-color:#33285a}
+html[data-theme=neon] .modal{background:rgba(5,2,12,.6)}
+html[data-theme=neon] .act.good,html[data-theme=neon] .act.bad,html[data-theme=neon] .act.pc,html[data-theme=neon] .onchip,html[data-theme=neon] .pchip.on{color:#140c22;text-shadow:none}
+html[data-theme=neon] .pglass{border-color:#f3eaff;background:#2a2048}
+
+/* 레트로 게임: 각진 픽셀 상자, 기울기 없음 */
+html[data-theme=retro]{--paper:#e3ebc8;--grid:#d0dbb0;--ink:#1f2b16;--soft:#4d6040;--card:#f4f8e4;--wh:#f8fbec;--pink:#f5a3a3;--cyan:#9ccfd0;--amber:#f0cc78;--lime:#b3d66a;--violet:#c3b2e6;--red:#ee8a6a;--butter:#f1e47a;--p1:#e0475b;--p2:#3a78d4}
+html[data-theme=retro] *{border-radius:0 !important}
+html[data-theme=retro] .die i,html[data-theme=retro] .bd i,html[data-theme=retro] .initial,html[data-theme=retro] .avatar,html[data-theme=retro] .rwheel,html[data-theme=retro] .ball,html[data-theme=retro] .tok::after{border-radius:50% !important}
+html[data-theme=retro] .cell,html[data-theme=retro] .cell:nth-of-type(odd),html[data-theme=retro] .cell:nth-of-type(even){transform:none;box-shadow:0 0 0 3px var(--ink),6px 6px 0 var(--ink)}
+html[data-theme=retro] .cell.owned{box-shadow:inset 0 0 0 6px var(--oc),0 0 0 3px var(--ink),6px 6px 0 var(--ink)}
+html[data-theme=retro] .cell::before{display:none}
+html[data-theme=retro] .cell .nm{letter-spacing:.02em}
+html[data-theme=retro] .cell .no::before{content:"#"}
+html[data-theme=retro] .logo,html[data-theme=retro] .st-sub,html[data-theme=retro] .st-a,html[data-theme=retro] .chip,html[data-theme=retro] .tagx,html[data-theme=retro] .st-credit{transform:none}
+html[data-theme=retro] .ev,html[data-theme=retro] .bill,html[data-theme=retro] .ctrl{box-shadow:6px 6px 0 var(--ink)}
+html[data-theme=retro] .ev::before,html[data-theme=retro] .st-logo::before{display:none}
+html[data-theme=retro] .st-a{box-shadow:8px 8px 0 var(--ink)}
+html[data-theme=retro] .st-b{text-shadow:6px 6px 0 var(--lime)}
+html[data-theme=retro] .start{background:repeating-linear-gradient(transparent 0 3px,rgba(31,43,22,.05) 3px 4px),var(--paper)}
+
+/* 시작 화면: 버전 고르기 */
+.st-ver{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--wh);border:3px solid var(--ink);border-radius:18px;padding:12px 22px;box-shadow:5px 5px 0 var(--violet)}
+.vrow{display:flex;align-items:center;gap:14px}
+.vrow>b{font-family:var(--display);font-weight:400;font-size:26px;white-space:nowrap;width:100px}
+.vopts{display:flex;gap:10px;flex-wrap:wrap}
+.vo{display:flex;flex-direction:column;align-items:flex-start;gap:0;border:3px solid var(--ink);border-radius:14px;background:var(--wh);color:var(--ink);padding:5px 14px 6px;min-width:150px;text-align:left;opacity:.6;transition:transform .12s}
+.vo b{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.15}
+.vo small{font-family:var(--hand);font-weight:700;font-size:18px;color:var(--soft);line-height:1.1}
+.vo:hover:not(:disabled){opacity:.9;transform:translateY(-2px)}
+.vo.on{opacity:1;background:var(--butter);box-shadow:4px 4px 0 var(--ink);transform:translateY(-2px)}
+.vo:disabled{cursor:not-allowed}
+.vo .sw{display:flex;gap:3px;margin-top:3px}
+.vo .sw i{width:20px;height:12px;border:2px solid #0003;border-radius:3px}
+.st-ver>small{font-family:var(--hand);font-weight:700;font-size:20px;color:var(--soft)}
+.st-ver>small:empty{display:none}
 </style>
 </head>
 <body>
@@ -435,7 +565,7 @@ html.obs #fit{max-width:none;padding:0;margin:0}
   <div class="stage" id="board">
     <div class="hole" id="hole">
       <div class="placeholder"><div>가운데: 유람 · 챠챠 자리<small>양옆 메모만 빼고 OBS에서는 투명하게 비어요</small></div></div>
-      <div class="gears"><span class="onchip" id="onChip" hidden></span><button class="gear" id="toMain">메인 화면</button><button class="gear" id="gear">캐릭터 · 설정</button></div>
+      <div class="gears"><span class="onchip" id="onChip" hidden></span><button class="gear" id="toMain">메인 화면</button><button class="gear" id="gear">캐릭터 · 설정</button><button class="gear" id="gearEd">글자 편집</button></div>
       
       <div class="col colL">
         <div class="logo"><span>포차</span> 주루마블<small class="credit">by SIX:ME</small></div>
@@ -457,12 +587,17 @@ html.obs #fit{max-width:none;padding:0;margin:0}
     </div>
     <div class="start" id="start" hidden>
       <div class="st-logo"><span class="st-a">포차</span> <span class="st-b">주루마블</span></div>
-      <p class="st-sub">1~6인 · 한 모금 룰 · 순한맛</p>
+      <p class="st-sub" id="stSub">1~6인 · 한 모금 룰 · 설렘 술자리</p>
       <div class="st-line" id="stLine"></div>
       <p class="st-hint" id="stHint">아래에서 참가할 캐릭터를 눌러 고르세요 (최대 6명)</p>
       <div class="st-pool" id="stPool"></div>
       <div class="st-online" id="stOnline"></div>
       <p class="st-credit">made by SIX:ME</p>
+      <div class="st-ver">
+        <div class="vrow"><b>판 종류</b><div class="vopts" id="stPack" role="radiogroup" aria-label="판 종류"></div></div>
+        <div class="vrow"><b>디자인</b><div class="vopts" id="stTheme" role="radiogroup" aria-label="디자인"></div></div>
+        <small id="stVerNote"></small>
+      </div>
       <div class="st-ctrl">
         <label for="stLaps">몇 바퀴?<select id="stLaps"><option value="2">2바퀴</option><option value="3">3바퀴</option><option value="4">4바퀴</option></select></label>
         <button class="ghost" id="stSet">캐릭터 추가 · 설정</button>
@@ -480,6 +615,7 @@ html.obs #fit{max-width:none;padding:0;margin:0}
     <ul class="log" id="log"></ul>
     <div class="tools" style="margin-top:12px">
       <button class="ghost" id="openSet">캐릭터 추가 · 설정</button>
+      <button class="ghost" id="openEd">텍스트 편집</button>
       <button class="ghost" id="toMain2">메인 화면으로</button>
       <button class="ghost" id="newGame">새 게임</button>
     </div>
@@ -503,87 +639,58 @@ html.obs #fit{max-width:none;padding:0;margin:0}
       <li>다른 사람이 시킨 안주 칸에 도착하면 통행료 미션. 실패하면 안주 가격만큼 벌주.</li>
       <li>누군가 <b id="lapsTxt">3</b>바퀴를 돌면 끝. 안주를 많이 시킨 사람이 승리, 같으면 덜 마신 사람이 승리.</li>
       <li>진 사람은 술 말고 <b>최종 벌칙</b>을 받아요.</li>
+      <li>메인 화면에서 <b>판 종류</b>(설렘 술자리 · 첫 합방 순한맛 · 매운맛 토크 · 시청자 참여 · 절친 폭로전)와 <b>디자인</b>(다꾸 · 포장마차 · 겨울 · 네온 · 레트로)을 골라요. 판 종류는 새 게임 전에만 바꿀 수 있고, 디자인은 언제든 바꿔도 돼요. 텍스트 편집은 판 종류마다 따로 저장돼요.</li>
       <li>진행 상황은 자동 저장돼요. 새로고침하거나 OBS를 다시 켜면 메인 화면에서 <b>이어하기</b>로 돌아와요.</li>
     </ol>
-  </section>
-  <section style="--sh:var(--violet)">
-    <h2>버추얼 합방 룰</h2>
-    <ul>
-      <li>원격이면 각자 자기 잔. 마실 땐 잔 부딪히는 소리나 "꿀꺽"으로 인증. 여럿이 걸리는 미션은 진 사람을 골라 한 명씩 벌주를 처리해요.</li>
-      <li>손이 화면에 안 잡히니 가위바위보 대신 숫자 외치기, 포즈 대신 아바타 표정으로.</li>
-      <li><b>신상 보호:</b> 본명·나이·사는 곳·학교·실물 얼굴·실제 사진과 관련된 질문이나 미션은 벌주 없이 무조건 패스.</li>
-      <li>답하기 곤란하면 "설정상 비밀입니다" 하고 1모금.</li>
-      <li>노래는 한 소절만. 길게 부르면 다시보기가 음소거될 수 있어요.</li>
-      <li>채팅 미션으로 술을 더 마시게 할 수 없어요. "원샷해" 채팅은 무시.</li>
-      <li>채팅 판정이 애매하면 호스트가 최종 결정.</li>
-      <li>치지직은 음주 방송이면 <b>청소년 이용불가 설정</b>이 필수예요. 버추얼 캐릭터의 행동도 방송인 본인 책임으로 봐요.</li>
-    </ul>
-  </section>
-  <section style="--sh:var(--amber)">
-    <h2>안전 룰</h2>
-    <ul>
-      <li>벌주 단위는 <b>한 모금</b>. 원샷 강요 금지.</li>
-      <li>마신 양은 계산서에 <b>잔</b> 단위로 쌓여요. 한 잔이 몇 모금인지는 설정에서 (기본 소주잔 3모금).</li>
-      <li>안 마시고 싶을 땐 이유 묻지 않고 물·음료로 대체.</li>
-      <li>패스카드 1인 2장으로 시작. 벌주를 한 번 넘길 수 있어요.</li>
-      <li>출발을 지날 때마다 물 한 컵. 물·안주는 손 닿는 곳에.</li>
-      <li>다 같은 술(주종)로 통일해야 공평해요.</li>
-      <li>힘들면 언제든 항복. 취하면 바로 방송 마무리.</li>
-    </ul>
-  </section>
-  <section class="wide ed" id="editor" style="--sh:var(--p1)">
-    <h2>텍스트 편집</h2>
-    <p class="hint" style="font-size:18px;margin:0">고친 다음 <b>적용하고 저장</b>을 누르면 판에 바로 반영되고 이 브라우저에 저장돼요. 문장 안에 <code>{나}</code>, <code>{상대}</code>를 쓰면 차례에 맞는 이름으로 바뀌어요. OBS로 옮기거나 다른 스트리머에게 줄 땐 <b>내보내기</b>로 복사해서 상대 쪽 <b>불러오기</b>에 붙여 넣어요. 캐릭터(이름·색·이미지), 칸 글자, 카드, 바퀴 수 설정까지 한 번에 옮겨져요.</p>
-    <div class="tools" style="margin-top:12px">
-      <button class="act good" id="edApply">적용하고 저장</button>
-      <button class="ghost" id="edExport">내보내기 (복사)</button>
-      <button class="ghost" id="edImportBtn">불러오기</button>
-      <button class="ghost" id="edReset">기본값으로 되돌리기</button>
-      <span class="hint" id="edMsg" style="align-self:center"></span>
-    </div>
-    <textarea id="edImport" placeholder="내보낸 코드를 여기에 붙여 넣고 불러오기를 누르세요" style="display:none;margin-top:10px;min-height:80px"></textarea>
-    <details open><summary>칸 28개</summary>
-      <div class="tblwrap"><table><thead><tr><th>칸</th><th>종류</th><th>이름</th><th>설명 · 통행료 미션</th><th>가격</th></tr></thead><tbody id="edCells"></tbody></table></div>
-    </details>
-    <details open><summary>카드 · 질문 목록 (한 줄에 하나)</summary>
-      <div class="ed-grid">
-        <label for="edKeys">황금열쇠 (기존 줄은 원래 효과 유지, 새 줄은 실패하면 1모금 미션)<textarea id="edKeys"></textarea></label>
-        <label for="edBal">밸런스게임 (A / B 형식)<textarea id="edBal"></textarea></label>
-        <label for="edTruth">진실게임 질문<textarea id="edTruth"></textarea></label>
-        <label for="edOpts">금지어 옵션<textarea id="edOpts"></textarea></label>
-        <label for="edCat">초성게임 주제<textarea id="edCat"></textarea></label>
-        <label for="edFinal">최종 벌칙<textarea id="edFinal"></textarea></label>
-      </div>
-    </details>
-    <details><summary>카드에 나오는 안내 문장</summary>
-      <div id="edDesc"></div>
-    </details>
-  </section>
-  <section class="wide" style="--sh:var(--lime)">
-    <h2>실제 주루마블에서 가져온 것</h2>
-    <ul>
-      <li><b>블랙홀:</b> 옛 주루마블 판(酒樓磨佛)의 블랙홀처럼, 갇히면 다른 사람이 대신 마셔 줘야 빠져나와요.</li>
-      <li><b>술 권하기 · 칵테일 퍼레이드 · 건배사 제창 · SAFE 존:</b> 실제 판에 있던 칸을 2인 버추얼용으로 순하게 바꿨어요. 폭탄주 대신 집에 있는 음료로 칵테일을 만들어요.</li>
-      <li><b>황금열쇠:</b> 두꺼비 카드의 세금감면·휴식·꽝·안주 선택권·흑기사·건배·러브샷, 그리고 "귀엽게 조르기" 미션을 넣었어요.</li>
-      <li><b>진실게임 거부는 벌주 두 배</b>, 훈민정음·베스킨라빈스 31·몸으로 말해요(→ 표정으로 말해요)도 실제 판 칸이에요.</li>
-      <li>주루마블은 정해진 공식 룰이 없어서, 땅을 사는 방식과 걸리면 마시는 방식이 섞여 쓰여요. 이 판은 안주를 시키는(땅을 사는) 방식이에요.</li>
-    </ul>
-  </section>
-  <section style="--sh:var(--pink)">
-    <h2>최종 벌칙 후보</h2>
-    <ul id="finalList"></ul>
-  </section>
-  <section class="wide" style="--sh:var(--amber)">
-    <h2>안주 칸과 통행료 미션</h2>
-    <div class="tblwrap"><table id="landTbl"><thead><tr><th>칸</th><th>안주</th><th>가격 · 실패 벌주</th><th>통행료 미션</th></tr></thead><tbody></tbody></table></div>
-  </section>
-  <section class="wide" style="--sh:var(--violet)">
-    <h2>황금열쇠 카드 <span id="keyCount"></span></h2>
-    <ol class="keys" id="keyList"></ol>
   </section>
 </div>
 <p class="foot">술은 만 19세 이상, 적당히. 과음은 건강에 해로워요.</p>
 
+<div class="modal edmodal" id="edModal" role="dialog" aria-modal="true" aria-labelledby="edTitle">
+  <div class="sheet edsheet ed">
+    <div class="ed-top">
+      <h2 id="edTitle">텍스트 편집</h2>
+      <button class="ghost" id="edClose">닫기</button>
+    </div>
+    <p class="ed-help">고친 다음 <b>적용하고 저장</b>을 눌러요. 문장에 <code>{나}</code>, <code>{상대}</code>를 쓰면 차례에 맞는 이름으로 바뀌어요. 판의 칸을 직접 눌러서 고칠 수도 있어요.</p>
+    <div class="ed-tabs" role="tablist">
+      <button class="ed-tab on" data-tab="cells" role="tab">칸 28개</button>
+      <button class="ed-tab" data-tab="keys" role="tab">황금열쇠</button>
+      <button class="ed-tab" data-tab="qs" role="tab">질문 · 금지어</button>
+      <button class="ed-tab" data-tab="final" role="tab">최종 벌칙</button>
+      <button class="ed-tab" data-tab="desc" role="tab">안내 문장</button>
+      <button class="ed-tab" data-tab="share" role="tab">내보내기 · 불러오기</button>
+    </div>
+    <div class="ed-body">
+      <div class="ed-pane on" data-pane="cells"><div class="ecards" id="edCells"></div></div>
+      <div class="ed-pane" data-pane="keys">
+        <label for="edKeys" class="ed-lab">황금열쇠 카드 <span id="edKeysN"></span><small>한 줄에 한 장. 원래 있던 줄은 효과(이동, 대결 등)가 그대로 유지되고, 새로 쓴 줄은 '성공 / 실패하면 1모금' 미션 카드가 돼요.</small><textarea id="edKeys" class="big"></textarea></label>
+      </div>
+      <div class="ed-pane" data-pane="qs">
+        <div class="ed-grid">
+          <label for="edBal" class="ed-lab">밸런스게임<small>한 줄에 하나, "A / B" 형식</small><textarea id="edBal"></textarea></label>
+          <label for="edTruth" class="ed-lab">진실게임 질문<small>한 줄에 하나</small><textarea id="edTruth"></textarea></label>
+          <label for="edOpts" class="ed-lab">금지어<small>한 줄에 하나</small><textarea id="edOpts"></textarea></label>
+          <label for="edCat" class="ed-lab">초성게임 주제<small>한 줄에 하나</small><textarea id="edCat"></textarea></label>
+        </div>
+      </div>
+      <div class="ed-pane" data-pane="final">
+        <label for="edFinal" class="ed-lab">최종 벌칙<small>게임이 끝나면 진 사람에게 이 중 하나가 뽑혀요. 한 줄에 하나.</small><textarea id="edFinal" class="big"></textarea></label>
+      </div>
+      <div class="ed-pane" data-pane="desc"><div id="edDesc"></div></div>
+      <div class="ed-pane" data-pane="share">
+        <p class="ed-help">OBS로 옮기거나 다른 스트리머에게 줄 때 써요. 캐릭터(이름·색·이미지), 칸 글자, 카드, 바퀴 수 설정까지 한 번에 옮겨져요.</p>
+        <div class="tools"><button class="ghost" id="edExport">내보내기 (복사)</button><button class="ghost" id="edImportBtn">불러오기</button></div>
+        <textarea id="edImport" placeholder="내보낸 코드를 여기에 붙여 넣고 불러오기를 한 번 더 누르세요" style="display:none;margin-top:10px;min-height:120px"></textarea>
+      </div>
+    </div>
+    <div class="ed-foot">
+      <button class="act good" id="edApply">적용하고 저장</button>
+      <button class="ghost" id="edReset">기본값으로 되돌리기</button>
+      <span class="hint" id="edMsg"></span>
+    </div>
+  </div>
+</div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="setTitle">
   <div class="sheet">
     <h2 id="setTitle">캐릭터 · 설정</h2>
@@ -620,160 +727,405 @@ const PRESET = [
 ];
 const CELLS = [
   {n:'출발',k:'start',d:'지날 때마다 물 한 컵'},
-  {n:'계란말이',k:'land',p:1,toll:'주인에게 칭찬 3개 연속 (목소리 텐션 필수)'},
+  {n:'안주',k:'land',p:1,toll:'주인 눈을 보고 3초 플러팅 멘트 한 줄'},
   {n:'황금열쇠',k:'key'},
-  {n:'오뎅탕',k:'land',p:1,toll:'주인 목소리·말투로 10초 성대모사'},
+  {n:'안주',k:'land',p:1,toll:'술 취한 척 연기 10초, 주인이 인정하면 성공'},
   {n:'밸런스게임',k:'balance',d:'채팅 픽 맞히기'},
   {n:'건배사 제창',k:'toast',d:'새 건배사 4글자+'},
-  {n:'노가리',k:'land',p:1,toll:'아재개그 1개, 채팅에 ㅋ가 3줄 이상 올라오면 성공'},
-  {n:'떡볶이',k:'land',p:1,toll:'주인에게 목소리 애교 10초'},
-  {n:'진실게임',k:'truth',d:'캐릭터로 답해도 OK'},
-  {n:'블랙홀',k:'jail',d:'2턴 쉬기 · 상대가 대신 마셔주면 탈출'},
+  {n:'미니게임',k:'mini',d:'랜덤 미니게임'},
+  {n:'안주',k:'land',p:1,toll:'주인에게 "한 잔만 더~" 10초, 애교 or 박력 중 골라서'},
+  {n:'진실게임',k:'truth',d:'연애 질문 포함'},
+  {n:'블랙홀',k:'jail',d:'2턴 쉬기 · 누가 대신 마셔주면 탈출'},
   {n:'술 권하기',k:'point',d:'고른 사람 1모금'},
   {n:'황금열쇠',k:'key'},
   {n:'초성게임',k:'chosung',d:'막히면 1모금'},
-  {n:'치즈불닭',k:'land',p:2,toll:'다음 내 차례까지 주인이 정한 말투로 말하기'},
+  {n:'안주',k:'land',p:2,toll:'최근에 질투했던 순간 썰 풀기'},
   {n:'SAFE 존',k:'service',d:'패스카드 +1'},
-  {n:'닭똥집',k:'land',p:2,toll:'방송하다 생긴 흑역사 1개 털어놓기'},
+  {n:'안주',k:'land',p:2,toll:'술 마시고 한 최악의 실수 1개 고백'},
   {n:'금지어',k:'option',d:'3턴 동안 발동'},
-  {n:'먹태',k:'land',p:2,toll:'3턴 동안 주인을 "사장님"이라고 부르기'},
-  {n:'황금열쇠',k:'key'},
+  {n:'안주',k:'land',p:2,toll:'3턴 동안 주인을 "자기"라고 부르기'},
+  {n:'미니게임',k:'mini',d:'랜덤 미니게임'},
   {n:'원격 러브샷',k:'love',d:'다 같이 1모금'},
   {n:'칵테일 퍼레이드',k:'cocktail',d:'나만의 칵테일'},
-  {n:'닭꼬치',k:'land',p:2,toll:'주인 질문 1개에 솔직하게 답하기 (신상 질문 금지)'},
+  {n:'안주',k:'land',p:2,toll:'주인의 연애 질문 1개에 솔직하게 (신상 질문 금지)'},
   {n:'노래방',k:'song',d:'한 소절만 · 저작권 조심'},
   {n:'택시',k:'taxi',d:'원하는 칸으로'},
   {n:'황금열쇠',k:'key'},
   {n:'물 타임',k:'water',d:'다 같이 물 한 컵'},
-  {n:'홍합탕',k:'land',p:2,toll:'주인이 내는 넌센스 퀴즈 맞히기'},
-  {n:'치킨',k:'land',p:2,toll:'아바타 댄스 15초 (상체만 흔들어도 인정)'}
+  {n:'미니게임',k:'mini',d:'랜덤 미니게임'},
+  {n:'안주',k:'land',p:3,toll:'주인에게 취중 고백 상황극 15초'}
 ];
 const CORNERS = [0,9,14,23];
-const EDITABLE_K = ['land','key','balance','truth','chosung','option','love','song','water','toast','cocktail','point'];
-const MISSION_K = ['balance','truth','chosung','option','love','song','water','toast','cocktail','point'];
+const EDITABLE_K = ['land','key','mini','balance','truth','chosung','option','love','song','water','toast','cocktail','point'];
+const MISSION_K = ['balance','truth','chosung','option','love','song','water','toast','cocktail','point','mini'];
 
 const KEYS = [
-  {t:'패스카드 1장 획득',fx:'pass'},
-  {t:'흑기사권 1장 획득: 내 벌주 1번을 상대가 대신 마셔요. 대신 상대의 가벼운 소원 1개 들어주기',fx:'knight'},
+  {t:'세금감면: 패스카드 1장 획득',fx:'pass'},
+  {t:'흑기사권 1장 획득: 내 벌주 1번을 다른 사람이 대신 마셔요. 대신 그 사람의 가벼운 소원 1개 들어주기',fx:'knight'},
   {t:'출발 칸으로 이동 (지나가면서 물 한 컵)',fx:'goto0'},
   {t:'블랙홀로 직행, 2턴 쉬기',fx:'jail'},
   {t:'뒤로 3칸',fx:'back3'},
   {t:'앞으로 2칸',fx:'fwd2'},
   {t:'다른 사람과 말 위치 바꾸기',fx:'swap'},
   {t:'택시 호출: 원하는 칸으로 이동',fx:'taxi'},
-  {t:'원격 건배! 뽑은 사람이 건배사, 다 같이 잔 부딪히는 소리 내고 1모금',fx:'both1'},
+  {t:'건배! 뽑은 사람이 오늘의 건배사, 다 같이 잔 부딪히는 소리 내고 1모금',fx:'both1'},
   {t:'나 빼고 한 모금: 나 말고 다 1모금',fx:'opp1'},
   {t:'주사위 한 번 더',fx:'again'},
-  {t:'물 한 컵 (물로!) 쉬어가는 카드',fx:'water'},
-  {t:'안주 타임: 둘 다 안주 한 입, 먹는 소리 ASMR 10초',fx:'rest'},
-  {t:'안주 강탈: 다른 사람 안주 1개를 가져와요. 그 사람이 목소리 애교 10초를 하면 방어 성공',fx:'steal'},
-  {t:'기부 천사: 내 안주 1개를 다른 사람에게 넘기거나 1모금',fx:'give'},
-  {t:'진실 2 + 거짓 1 (방송·캐릭터 이야기로): 상대가 거짓을 맞히면 내가 1모금, 못 맞히면 상대가 1모금',fx:'duel'},
-  {t:'칭찬 배틀: 번갈아 칭찬하다 먼저 막히는 사람 1모금',fx:'duel'},
-  {t:'초성 퀴즈 배틀: 서로 1문제씩, 3초 안에 못 맞히면 1모금',fx:'duel'},
-  {t:'업다운: 상대가 생각한 1~50 숫자를 5번 안에 못 맞히면 1모금',fx:'duel'},
-  {t:'웃참 챌린지: 서로 10초씩 웃기기, 먼저 웃는 사람 1모금 (아바타가 웃어도 아웃)',fx:'duel'},
-  {t:'숫자 대결: 셋 세고 동시에 1~5 중 하나 외치기, 작은 숫자 1모금 (같으면 다시)',fx:'duel'},
-  {t:'애교 릴레이: 번갈아 목소리 애교, 먼저 포기하는 사람 1모금',fx:'duel'},
-  {t:'시청자 투표 "오늘 제일 귀여운 사람" 표가 제일 적은 사람 1모금',fx:'duel'},
-  {t:'손병호 게임 3라운드 (방송 얘기 위주로): 먼저 다 접는 사람 1모금',fx:'duel'},
-  {t:'성대모사 대결: 같은 캐릭터를 둘 다 성대모사, 채팅 투표로 진 사람 1모금',fx:'duel'},
-  {t:'빙의 인사: 상대 캐릭터 목소리로 5초 인사, 채팅이 인정 안 하면 1모금',fx:'mission'},
-  {t:'아바타 최고 텐션 리액션 10초, 채팅이 인정 안 하면 1모금',fx:'mission'},
-  {t:'상대를 귀엽게 매도하기 10초 (선 넘으면 반칙)',fx:'mission'},
-  {t:'즉석 상황극 30초: 포차 사장님과 진상 손님',fx:'mission'},
-  {t:'내 캐릭터 설정 하나 즉석 추가하기 (예: 사실 오이를 못 먹는다)',fx:'mission'},
-  {t:'채팅에 처음 올라오는 단어로 삼행시',fx:'mission'},
-  {t:'클립각 만들기: 다음 내 차례 전까지 명장면 1개, 채팅이 인정 안 하면 1모금',fx:'mission'},
-  {t:'시청자 채팅이 정해주는 미션 1개 (술 마시는 미션은 무효)',fx:'mission'},
-  {t:'옵션 카드: 랜덤 금지어 3턴 발동',fx:'option'},
-  {t:'세금감면: 술 마시기 1번 면제 (패스카드 +1)',fx:'pass'},
+  {t:'해장 타임: 물 한 컵 원샷 (물로!)',fx:'water'},
+  {t:'안주 선택권: 다음 안주 메뉴를 내가 정하고, 다 같이 한 입',fx:'rest'},
   {t:'휴식: 다음 내 차례 한 번 쉬기',fx:'rest1'},
   {t:'꽝! 1모금 마시고 주사위 다시 굴리기',fx:'bust'},
-  {t:'안주 선택권: 상대에게 다음 안주 메뉴 정해 주기',fx:'rest'},
-  {t:'상대에게 치킨 사 달라고 귀엽게 조르기, 못 하면 2모금',fx:'mission2'},
-  {t:'훈민정음: 상대가 낸 초성으로 말 되는 문장 만들기, 5초 넘기면 1모금',fx:'mission'},
-  {t:'베스킨라빈스 31: 둘이서 번갈아 1~3개씩, 31 말하는 사람 1모금',fx:'duel'},
-  {t:'몸 대신 표정으로 말해요: 상대가 준 단어를 아바타 표정·소리 없이 표현, 1분 안에 못 맞히면 다 같이 1모금',fx:'both1'}
+  {t:'안주 강탈: 다른 사람 안주 1개를 가져와요. 그 사람이 "제발~" 애교 or 박력 있게 "내 거야" 10초를 하면 방어 성공',fx:'steal'},
+  {t:'기부 천사: 내 안주 1개를 다른 사람에게 넘기거나 1모금',fx:'give'},
+  {t:'금지어 카드: 랜덤 금지어 3턴 발동',fx:'option'},
+  {t:'플러팅 배틀: 번갈아 작업 멘트 하나씩, 먼저 웃거나 막히는 사람 1모금',fx:'duel'},
+  {t:'"한 잔 할래?" 제일 설레게 말하기: 채팅 투표로 진 사람 1모금',fx:'duel'},
+  {t:'취한 척 연기 배틀: 채팅이 제일 어설펐던 사람 고르기, 그 사람 1모금',fx:'duel'},
+  {t:'술버릇 폭로전: 서로의 술버릇 하나씩 폭로, 인정 못 하면 1모금',fx:'duel'},
+  {t:'손병호 게임 술자리판: "술 먹고 전 애인한테 연락해 본 사람 접어" 같은 연애·술 질문으로 (선 넘으면 반칙), 먼저 다 접는 사람 1모금',fx:'duel'},
+  {t:'이미지 게임: "오늘 제일 먼저 취할 것 같은 사람"을 동시에 지목, 가장 많이 지목된 사람 1모금',fx:'duel'},
+  {t:'눈빛 웃참: 지목한 사람과 10초 눈빛 교환, 먼저 웃는 사람 1모금',fx:'duel'},
+  {t:'시청자 투표 "오늘 제일 매력 있는 사람": 표가 제일 적은 사람 1모금',fx:'duel'},
+  {t:'진진가 연애편: 연애 이야기 진실 2개 + 거짓 1개, 못 맞히면 맞히는 사람이, 맞히면 낸 사람이 1모금',fx:'duel'},
+  {t:'술자리 진실게임: "마지막 연애는 언제?" 기간만 답하거나 2모금',fx:'mission2'},
+  {t:'썸 탈 때 제일 설렜던 순간 하나 썰 풀기',fx:'mission'},
+  {t:'전 애인에게 받은 최악의 선물 or 최악의 데이트 썰',fx:'mission'},
+  {t:'취중 고백 상황극 20초: 지목한 사람에게, 채팅이 인정 안 하면 1모금',fx:'mission'},
+  {t:'지목한 사람에게 "오늘 집에 안 갈래" 목소리 연기 (장난으로!)',fx:'mission'},
+  {t:'"자니?" 새벽 문자 읽는 연기, 채팅이 인정 안 하면 1모금',fx:'mission'},
+  {t:'내 연애 스타일을 술 종류로 비유하고 이유 설명하기',fx:'mission'},
+  {t:'연애할 때 절대 못 참는 것 하나 고백',fx:'mission'},
+  {t:'애교 vs 박력: 채팅이 정해 준 쪽으로 지목한 사람에게 10초 (선 넘으면 반칙)',fx:'mission'},
+  {t:'상대에게 치킨 사 달라고 조르기 (애교든 박력이든), 못 하면 2모금',fx:'mission2'},
+  {t:'목소리 체인지: 다음 내 차례까지 평소와 반대 톤(남자는 하이톤, 여자는 저음)으로 말하기, 풀리면 1모금',fx:'mission'},
+  {t:'캐릭터 바꾸기: 지목한 사람 말투·리액션 따라 하기 20초, 본인이 인정 안 하면 1모금',fx:'mission'},
+  {t:'남사친·여사친 멘트 배틀: "우리 그냥 친구잖아~" 제일 서운하게 말하기, 채팅 투표로 진 사람 1모금',fx:'duel'},
+  {t:'흑역사 경매: 술자리 흑역사 1개 공개, 채팅이 약하다고 하면 1모금',fx:'mission'},
+  {t:'건배사 3행시: 다른 사람이 정한 단어로 건배사 3행시, 다 같이 짠 1모금',fx:'both1'},
+  {t:'몸 대신 표정으로 말해요: 다른 사람이 준 단어를 아바타 표정만으로 표현, 1분 안에 못 맞히면 다 같이 1모금',fx:'both1'}
 ];
 
 const BAL = [
-  ['평생 떡볶이만','평생 치킨만'],
-  ['방송 중 딸꾹질 10분','방송 중 재채기 30번'],
-  ['아바타 평생 웃는 얼굴 고정','아바타 평생 무표정 고정'],
-  ['트래킹이 항상 1초 늦게 따라옴','가끔 눈이 반대로 감김'],
-  ['평생 노래 방송 금지','평생 게임 방송 금지'],
-  ['시청자 1명이 10시간 봐주기','시청자 100명이 1분씩 봐주기'],
-  ['새벽 5시 아침 방송','새벽 4시까지 심야 방송'],
-  ['돈 많은 백수','월급 적은 덕업일치'],
-  ['내 방송 다시보기 전부 공개','내 검색기록 공개'],
-  ['여름에 에어컨 없이 살기','겨울에 난방 없이 살기'],
-  ['평생 민트초코만','평생 민트초코 금지'],
-  ['목소리 평생 헬륨가스','목소리 평생 동굴 저음'],
-  ['합방 때마다 지각하는 친구','합방 때마다 마이크 꺼져 있는 친구'],
-  ['라면에 계란 무조건 넣기','라면에 계란 절대 금지'],
-  ['한 달 동안 술 금지','한 달 동안 카페인 금지'],
-  ['다음 아바타 의상을 시청자 투표로','다음 방송 제목을 시청자 투표로'],
-  ['여행 가서 계획 1분 단위','여행 가서 계획 0개'],
-  ['칼답하는 채팅창','클립 장인 시청자']
+  ['연인이 내 친구와 단둘이 술','연인이 모르는 사람과 단둘이 술'],
+  ['전 애인이 같은 회사 옆자리','전 애인이 내 방송 열혈 시청자'],
+  ['술 취하면 우는 연인','술 취하면 연락 두절되는 연인'],
+  ['썸만 3년','연애 3개월 하고 이별'],
+  ['칼답인데 무뚝뚝한 연인','답장 느린데 다정한 연인'],
+  ['첫 데이트 술자리','첫 데이트 카페'],
+  ['술자리에서 고백받기','문자로 고백받기'],
+  ['애인 친구가 나한테 고백','내 친구가 내 애인한테 고백'],
+  ['숙취 3일','술 1년 금지'],
+  ['취해서 전 애인에게 전화','취해서 단톡방에 고백'],
+  ['나보다 술 센 애인','한 잔에 취하는 애인'],
+  ['평생 소주만','평생 맥주만'],
+  ['남사친·여사친과 단둘이 여행 OK','연인의 이성 친구와 단둘이 술 OK'],
+  ['리드하는 연애','리드당하는 연애'],
+  ['데이트 비용 반반','번갈아 가며 내기'],
+  ['연인의 이성 친구 1명 허락','이성 친구 0명'],
+  ['술 마시면 애교 폭발','술 마시면 상남자·상여자 모드'],
+  ['첫눈에 반하기','정들어서 좋아지기'],
+  ['연애 사실 공개 방송','끝까지 비밀 연애'],
+  ['헤어지고 다음 날 혼자 방송','헤어지고 다음 날 합방']
 ];
 const TRUTH = [
-  '상대(캐릭터)에 대한 첫인상은?',
-  '처음 방송 켰던 날 제일 떨렸던 순간',
-  '방송하다 제일 크게 웃었던 일',
-  '합방하면서 상대에게 은근 서운했던 순간 하나',
-  '아직 못 해 본, 해 보고 싶은 방송 콘텐츠',
-  '지금까지 받은 채팅 중 제일 기억에 남는 것',
-  '최근 가장 후회한 소비 (금액은 비밀 OK)',
-  '이상형 캐릭터나 연예인 3명',
-  '방송 끄고 혼자 하는 이상한 습관',
-  '내가 상대보다 확실히 잘하는 것 하나',
-  '술 마시면 나오는 술버릇',
-  '내 캐릭터의 숨겨진 설정 하나',
-  '가장 최근에 한 귀여운 거짓말',
-  '상대 방송에서 몰래 따라 해 본 것',
-  '1년 뒤 우리 팀은 뭐 하고 있을까?',
-  '상대의 매력 포인트 1위',
-  '요즘 방송 고민 한 줄',
-  '다시 데뷔한다면 바꾸고 싶은 설정'
+  '마지막 연애는 언제였어? (기간만 말해도 OK)',
+  '여기 있는 사람 중 연애 제일 잘할 것 같은 사람은?',
+  '최근에 설렜던 순간 하나',
+  '술 마시고 연락했다가 후회한 적 있어?',
+  '이상형을 외모 말고 성격으로만 설명하면?',
+  '연애할 때 제일 질투 나는 상황은?',
+  '고백해 본 썰 vs 고백받아 본 썰, 더 기억에 남는 것',
+  '제일 부끄러운 술버릇은?',
+  '여기 있는 사람 첫인상과 지금 인상 차이',
+  '연인에게 절대 용서 못 하는 것 하나',
+  '전 애인에게 들은 말 중 제일 기억에 남는 말',
+  '술자리에서 들은 최고의 작업 멘트',
+  '썸 타다가 끝난 이유 1위',
+  '여기 있는 사람 중 술친구로 제일 좋은 사람은?',
+  '취했을 때 제일 많이 하는 말',
+  '연애하면 바뀌는 내 모습 하나',
+  '지금 휴대폰에서 제일 최근에 연락한 사람과의 관계 (이름 말고)',
+  '다시 만나고 싶은 사람 있어? 있다면 이유만',
+  '이성(또는 연애 상대)이 했을 때 제일 설레는 행동은?',
+  '여기 있는 사람 중 반대 성별로 태어났으면 인기 많았을 사람은?'
 ];
 const OPTS = [
-  '영어 금지','존댓말만 쓰기','웃음 금지 (아바타가 웃어도 아웃)','문장 끝에 "냥" 붙이기','"아니" 금지','숫자 말하기 금지','서로 이름 대신 "자기야"','사투리로만 말하기','시청자를 "손님"이라고 부르기'
+  '영어 금지','존댓말만 쓰기','웃음 금지 (아바타가 웃어도 아웃)','문장 끝에 "냥" 붙이기','"아니" 금지','서로 이름 대신 "자기야"','"술" 이라는 말 금지','사투리로만 말하기','시청자를 "손님"이라고 부르기','"좋아해" 금지','서로를 "형/언니"로만 부르기'
 ];
 const CHO = ['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅅ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
-const CAT = ['음식','동물','캐릭터','게임','브랜드','노래 제목','아무 단어'];
+const CAT = ['술 이름','안주','연애 용어','노래 제목','데이트 장소','캐릭터','아무 단어'];
 const FINAL = [
-  '승자 채널 홍보 멘트 30초 (진심 담아서)',
-  '다음 방송 오프닝을 승자가 써 준 대본으로 하기',
-  '승자가 고른 말투로 다음 방송 첫 10분',
-  '다음 방송 제목에 승자 이름 + "짱" 넣기',
-  '풀버전 애교 30초 + 클립 박제 허락',
-  '다음 합방까지 승자를 "선배님"이라고 부르기',
-  '승자 칭찬 10개 연속',
-  '승자가 정한 주제로 편지 써서 낭독하기'
+  '승자에게 진심 담은 고백 멘트 30초',
+  '승자가 정한 애칭으로 다음 방송 내내 불리기',
+  '승자가 고른 말투로 다음 방송 오프닝',
+  '승자에게 취중 고백 상황극 1분',
+  '풀버전 애교 or 박력 멘트 30초 (본인 선택) + 클립 박제 허락',
+  '승자 칭찬 10개 연속, 끝날 때마다 "최고야" 붙이기',
+  '다음 합방까지 승자를 "자기"라고 부르기',
+  '승자에게 러브레터 써서 낭독하기'
 ];
 const DESC = {
   start:{t:'출발 칸 도착',b:'한 바퀴 돌 때마다 물 한 컵! 잠깐 숨 고르기.'},
   buy:{b:'마시고 시키면, 다른 사람이 올 때마다 통행료 미션을 시켜요.'},
   toll:{b:'주인이 인정하면 성공. 실패하면 안주 가격만큼 마셔요.'},
   balance:{b:'채팅에 1 또는 2로 투표받는 동안, 다들 "채팅이 더 많이 고를 쪽"을 예측해요. 틀린 사람 1모금.'},
-  truth:{b:'캐릭터로 답해도 돼요. 거부하면 벌주 두 배, "설정상 비밀입니다" 하고 2모금. 신상 질문은 벌주 없이 패스.'},
+  truth:{b:'연애 질문도 OK, 캐릭터로 답해도 돼요. 거부하면 벌주 두 배로 2모금. 본명·나이·사는 곳 같은 신상 질문은 벌주 없이 패스.'},
   chosung:{b:'{나}부터 번갈아 하나씩. 3초 안에 못 대거나 중복이면 짐.'},
   love:{t:'원격 러브샷!',b:'마시기 전에 한마디씩. 셋 세고 동시에 "러브샷!" 외치고 1모금씩.'},
-  song:{t:'후렴 한 소절!',b:'{상대}이(가) 노래를 정해요. 딱 한 소절만! 길게 부르면 다시보기가 음소거될 수 있어요. 허밍도 인정.'},
+  song:{t:'술자리 18번 한 소절!',b:'{상대}이(가) 노래를 정해요. 딱 한 소절만! 길게 부르면 다시보기가 음소거될 수 있어요. 허밍도 인정.'},
   toast:{t:'새 건배사를 외쳐요!',b:'4글자 이상, 원래 있는 건배사는 금지. 성공하면 다 같이 짠, 막히면 혼자 1모금.'},
-  cocktail:{t:'나만의 칵테일 만들기',b:'집에 있는 음료(사이다, 주스, 우유 등)로 섞고 이름 붙이기. 한 모금 마시고 맛 리뷰 10초, 채팅 평점이 박하면 1모금 더.'},
+  cocktail:{t:'나만의 칵테일 만들기',b:'잔에 있는 술이나 집에 있는 음료(사이다, 주스, 우유 등)로 섞고 이름 붙이기. 한 모금 마시고 맛 리뷰 10초, 채팅 평점이 박하면 1모금 더.'},
   point:{t:'누구에게 권할까요?',b:'{나}이(가) 권하는 멘트를 한마디 하고, 고른 사람이 1모금.'},
-  water:{t:'다 같이 물 한 컵',b:'쉬어가는 칸이에요. 안주도 한 입.'},
+  water:{t:'다 같이 물 한 컵',b:'해장 타임이에요. 안주도 한 입.'},
   taxi:{t:'어디로 갈까요?',b:'보드에서 가고 싶은 칸을 눌러요. 출발을 지나면 한 바퀴로 쳐요.'},
-  jail:{t:'블랙홀에 빠졌다!',b:'물 한 컵 마시고 2턴 쉬어요. 내 차례에 더블이 나오거나, 패스카드를 쓰거나, 상대가 대신 1모금 마셔 주면 탈출해요.'},
+  jail:{t:'블랙홀에 빠졌다!',b:'물 한 컵 마시고 2턴 쉬어요. 내 차례에 더블이 나오거나, 패스카드를 쓰거나, 누가 대신 1모금 마셔 주면 탈출해요.'},
   service:{t:'SAFE 존!',b:'패스카드 1장을 받았어요. 벌주가 걸렸을 때 써요.'},
-  option:{b:'둘 다 3턴 동안 지켜요. 어기면 그때마다 1모금 (계산서의 +1모금으로 기록).'},
-  steal:{t:'뺏을 사람을 고르세요. 그 사람이 애교 10초를 하면 방어 성공!'}
+  option:{b:'다 같이 3턴 동안 지켜요. 어기면 그때마다 1모금 (계산서의 +1모금으로 기록).'},
+  steal:{t:'뺏을 사람을 고르세요. 그 사람이 애교 or 박력 멘트 10초를 하면 방어 성공!'}
 };
 const DESC_LABEL = {start:'출발',buy:'안주 시키기 안내',toll:'통행료 안내',balance:'밸런스게임',truth:'진실게임',chosung:'초성게임',love:'러브샷',song:'노래방',toast:'건배사 제창',cocktail:'칵테일 퍼레이드',point:'술 권하기',water:'물 타임',taxi:'택시',jail:'블랙홀',service:'SAFE 존',option:'금지어',steal:'안주 강탈 방어'};
-const KEYS_FX = KEYS.map(k => k.fx);
-const DEF = JSON.parse(JSON.stringify({cells:CELLS, keys:KEYS.map(k=>k.t), bal:BAL, truth:TRUTH, opts:OPTS, cat:CAT, final:FINAL, desc:DESC}));
+/* ---------- 내용 버전 (판 종류) ---------- */
+/* 칸 배치(종류)는 모두 같고, 이름·설명·통행료·카드·질문만 달라요. 황금열쇠 앞 18장(이동·패스 같은 기능 카드)은 공통 */
+const PACK_MECH = 18;
+const PACKS = {
+  base:{name:'설렘 술자리', tag:'기본 · 19+', sub:'1~6인 · 한 모금 룰 · 설렘 술자리'},
+  soft:{name:'첫 합방 순한맛', tag:'처음 만난 사이', sub:'1~6인 · 한 모금 룰 · 첫 합방 순한맛',
+    cells:{
+      1:{toll:'주인 첫인상 칭찬 한 마디'},
+      3:{toll:'주인 캐릭터 성대모사 5초'},
+      7:{toll:'주인이 정한 동물 소리 흉내'},
+      8:{n:'TMI 토크',d:'사소한 질문'},
+      13:{toll:'내 최애 안주 영업 15초'},
+      15:{toll:'최근에 제일 잘 산 물건 자랑'},
+      17:{toll:'3턴 동안 주인을 "사장님"이라고 부르기'},
+      19:{n:'원격 짠',d:'다 같이 1모금'},
+      21:{toll:'주인이 낸 퀴즈 하나 맞히기'},
+      27:{toll:'주인을 위한 즉석 응원가 10초'}
+    },
+    keys:[
+      {t:'끝말잇기 술자리판: 술·안주 단어로만, 막히는 사람 1모금',fx:'duel'},
+      {t:'369 게임: 박수 대신 "짠!", 틀린 사람 1모금',fx:'duel'},
+      {t:'TMI 배틀: 쓸데없는 TMI 하나씩, 채팅이 덜 쓸데없다고 고른 사람 1모금',fx:'duel'},
+      {t:'가위바위보 3판 2선승, 진 사람 1모금',fx:'duel'},
+      {t:'무표정 웃참 10초: 먼저 웃는 사람 1모금',fx:'duel'},
+      {t:'이구동성: 셋 세고 같은 안주 이름 외치기, 안 맞으면 다 같이 1모금',fx:'both1'},
+      {t:'다 같이 "짠!" 하고 오늘 고마운 사람 한 명씩 말하기',fx:'both1'},
+      {t:'내 방송 자랑 하나 + 다음 방송 예고 10초',fx:'mission'},
+      {t:'요즘 제일 많이 듣는 노래 제목과 이유',fx:'mission'},
+      {t:'채팅에 "나를 한 단어로?" 묻고 제일 웃긴 답 읽기',fx:'mission'},
+      {t:'아바타 표정 3단 변화: 기쁨 → 슬픔 → 당황, 채팅이 인정 안 하면 1모금',fx:'mission'},
+      {t:'지목한 사람 칭찬 3개, 하나라도 막히면 1모금',fx:'mission'},
+      {t:'내 인생 안주 BEST 3 발표',fx:'mission'},
+      {t:'어릴 적 장래희망과 지금 비교 썰, 패스하면 2모금',fx:'mission2'}
+    ],
+    bal:[
+      ['평생 치킨','평생 피자'],['여름 바다','겨울 스키장'],['아침형 인간','올빼미형 인간'],['혼방 8시간','합방 2시간 4번'],
+      ['소주','맥주'],['민트초코 찬성','민트초코 반대'],['부먹','찍먹'],['고양이','강아지'],
+      ['집에만 있기','밖에만 있기'],['노래 잘하기','춤 잘추기'],['10년 전으로','10년 후로'],['라면에 계란','라면에 치즈'],
+      ['투명 인간','순간 이동'],['게임 장인','요리 장인'],['매운 거 못 먹기','단 거 못 먹기'],['매일 오는 시청자 100명','한 달에 한 번 오는 1만 명']
+    ],
+    truth:[
+      '오늘 합방 전에 제일 긴장한 부분은?','방송하면서 제일 뿌듯했던 순간','최근에 웃겼던 일 하나','혼술할 때 꼭 먹는 안주',
+      '첫 방송 때 기억나는 것','여기 있는 사람 첫인상','내 방송의 숨은 매력 포인트','요즘 빠져 있는 것',
+      '스트레스 풀 때 하는 것','제일 자신 있는 요리','최근에 산 쓸데없는 물건','방송 말고 해 보고 싶은 일',
+      '어렸을 때 별명','여기 있는 사람이랑 같이 해 보고 싶은 콘텐츠','술 마시면 달라지는 점 하나','올해 안에 꼭 하고 싶은 것'
+    ],
+    opts:['영어 금지','존댓말만 쓰기','문장 끝에 "냥" 붙이기','"아니" 금지','"진짜" 금지','사투리로만 말하기','시청자를 "손님"이라고 부르기','말할 때마다 "짝!" 소리 내기','"술" 이라는 말 금지','웃을 때 "푸하하" 소리 내기'],
+    cat:['술 이름','안주','과일','라면 종류','게임 이름','동물','아무 단어'],
+    final:[
+      '다음 방송 오프닝을 승자 칭찬으로 시작','승자가 정한 별명으로 하루 불리기','승자 방송에 응원 채팅 10줄','승자가 고른 노래 한 소절 (저작권 조심)',
+      '승자에게 감사 영상 편지 30초','다음 합방 메뉴를 승자가 결정','승자 캐릭터 그림 그려서 보여 주기','승자 이름으로 3행시 헌정'
+    ],
+    desc:{
+      truth:{b:'사소한 질문이에요. 캐릭터로 답해도 돼요. 거부하면 2모금. 신상 질문은 벌주 없이 패스.'},
+      love:{t:'원격 짠!',b:'셋 세고 동시에 "짠!" 외치고 1모금씩.'},
+      steal:{t:'뺏을 사람을 고르세요. 그 사람이 "제발~" 10초를 하면 방어 성공!'}
+    }
+  },
+  spicy:{name:'매운맛 토크', tag:'19+ 연애 토크', sub:'1~6인 · 한 모금 룰 · 매운맛 토크 19+',
+    cells:{
+      1:{toll:'주인에게 진지한 눈빛으로 "취했어?" 한 마디'},
+      3:{toll:'내 연애 흑역사 한 줄 요약'},
+      7:{toll:'주인이 고른 사람에게 "보고 싶었어" 연기'},
+      8:{d:'빠꾸 없는 연애 질문'},
+      13:{toll:'최악의 이별 썰 30초'},
+      15:{toll:'술 먹고 보낸 메시지 중 최악 재연'},
+      17:{toll:'3턴 동안 주인을 "여보"라고 부르기'},
+      21:{toll:'주인의 연애 질문 2개에 솔직하게 (신상 질문 금지)'},
+      27:{toll:'주인에게 프러포즈 상황극 20초'}
+    },
+    keys:[
+      {t:'연애 손병호: "썸 타다 잠수 탄 적 있는 사람 접어" 식으로, 먼저 다 접는 사람 1모금',fx:'duel'},
+      {t:'고백 멘트 배틀: 채팅 투표로 덜 설렌 사람 1모금',fx:'duel'},
+      {t:'이미지 게임: "여기서 제일 연애 고수일 것 같은 사람" 동시 지목, 최다 득표 1모금',fx:'duel'},
+      {t:'이미지 게임: "취하면 전 애인한테 연락할 것 같은 사람" 동시 지목, 최다 득표 1모금',fx:'duel'},
+      {t:'질투 연기 배틀: "그 사람 누구야?" 제일 무섭게, 채팅 투표로 진 사람 1모금',fx:'duel'},
+      {t:'다 같이 "오늘 집에 안 가!" 외치고 1모금',fx:'both1'},
+      {t:'마지막 연애 기간과 헤어진 이유 한 줄, 패스하면 2모금',fx:'mission2'},
+      {t:'썸 상대에게 받은 제일 설렌 메시지 재연, 패스하면 2모금',fx:'mission2'},
+      {t:'취중 진담: 여기 있는 사람에게 진짜 하고 싶었던 말 한 마디, 패스하면 2모금',fx:'mission2'},
+      {t:'내 연애 스타일 장점·단점 하나씩 고백',fx:'mission'},
+      {t:'지목한 사람에게 "우리 무슨 사이야?" 진지하게 묻는 연기',fx:'mission'},
+      {t:'즉석 이상형 월드컵: 채팅이 낸 두 타입 중 고르고 이유 말하기',fx:'mission'},
+      {t:'연애할 때 내가 했던 제일 유치한 행동',fx:'mission'},
+      {t:'지목한 사람과 "헤어지자" 이별 상황극 15초',fx:'mission'},
+      {t:'전 애인에게 한 마디 (이름·신상 없이), 채팅이 약하다면 1모금',fx:'mission'}
+    ],
+    bal:[
+      ['애인 폰 몰래 보기','내 폰을 애인이 몰래 보기'],['전 애인과 친구로 지내기','완전 차단'],['연락 하루 100번','연락 하루 1번'],['질투 하나도 없는 연인','질투 폭발 연인'],
+      ['술자리마다 데리러 오는 연인','술자리마다 따라오는 연인'],['고백했다 차이기','고백 못 하고 끝나기'],['술 취향 정반대 연인','음식 취향 정반대 연인'],['애인이 내 술주정 영상 소장','애인이 내 잠꼬대 영상 소장'],
+      ['애인의 전 애인이 내 친구','내 전 애인이 애인의 친구'],['짧은 연애 10번','긴 연애 1번'],['새벽 "자니?" 매일','아침 "일어났어?" 100번'],['비밀 연애 들키기','공개 연애 하다 이별'],
+      ['스킨십 많은 연인','말이 다정한 연인'],['재회','새 출발'],['애인 친구들 앞에서 애교','내 친구들 앞에서 애인 자랑'],['첫 데이트에 고백','100일 기다렸다 고백']
+    ],
+    truth:[
+      '지금까지 연애 몇 번? (숫자만)','제일 오래 사귄 기간','먼저 고백한 적 vs 받은 적, 어느 쪽이 더 많아?','썸만 타다 끝난 최장 기간',
+      '이별 후 제일 후회한 행동','술 먹고 전 애인한테 연락한 적 있어?','여기 있는 사람 중 연애하면 제일 피곤할 것 같은 사람','연애할 때 들은 최고의 칭찬',
+      '바람의 기준은 어디부터?','연인에게 숨겨 본 것 하나 (가벼운 걸로)','최악의 첫 데이트 vs 최고의 첫 데이트','연애 중 제일 크게 싸운 이유',
+      '지금 연락하면 받을 것 같은 전 애인 있어? (예/아니오만)','여기 있는 사람에게 설렐 뻔한 순간 있어?','다시 태어나도 지금 연애 스타일 그대로?','내 고백 성공률은 몇 퍼센트?'
+    ],
+    opts:['"아니" 금지','"좋아" 금지','서로 "여보"라고 부르기','존댓말만 쓰기','웃음 금지 (아바타가 웃어도 아웃)','말끝마다 "자기야"','"술" 이라는 말 금지','영어 금지','이름 대신 "그대"','시청자를 "자기들"이라고 부르기'],
+    cat:['술 이름','연애 용어','이별 노래 제목','데이트 장소','고백할 때 쓰는 단어','안주','아무 단어'],
+    final:[
+      '승자에게 프러포즈 멘트 1분','다음 방송 제목을 승자가 정하기 (선 넘지 않게)','승자에게 새벽 감성 "자니?" 음성 편지','승자가 고른 연애 질문 3개에 답하기',
+      '다음 합방까지 승자를 "여보"라고 부르기','승자를 위한 러브송 한 소절 (저작권 조심)','승자에게 질투 연기 30초','반성문 낭독: "제가 오늘 너무 졌습니다"'
+    ],
+    desc:{
+      truth:{b:'빠꾸 없는 연애 질문이에요. 캐릭터로 답해도 돼요. 거부하면 2모금. 본명·나이·사는 곳 같은 신상 질문은 벌주 없이 패스.'}
+    }
+  },
+  chat:{name:'시청자 참여', tag:'채팅이 판을 흔든다', sub:'1~6인 · 한 모금 룰 · 시청자 참여판',
+    cells:{
+      1:{toll:'채팅이 정한 말투로 주인에게 인사'},
+      3:{toll:'채팅 이모티콘 하나를 표정으로 따라 하기'},
+      7:{toll:'채팅 첫 단어로 즉석 3행시'},
+      8:{n:'채팅 질문',d:'채팅이 묻는다'},
+      13:{toll:'채팅이 고른 성대모사 10초'},
+      15:{toll:'시청자 닉네임 하나 골라 칭찬 10초'},
+      16:{n:'채팅 금지어',d:'3턴 · 채팅이 바꿔도 OK'},
+      17:{toll:'3턴 동안 채팅이 정한 애칭으로 주인 부르기'},
+      21:{toll:'채팅 투표로 정한 질문에 답하기'},
+      22:{n:'신청곡',d:'채팅 신청곡 한 소절'},
+      27:{toll:'채팅이 쓴 대사 한 줄을 주인에게 연기'}
+    },
+    keys:[
+      {t:'채팅 투표 "오늘의 MVP": 표 제일 적은 사람 1모금',fx:'duel'},
+      {t:'채팅 이구동성: 시청자가 제일 많이 칠 단어 맞히기, 틀린 사람 1모금',fx:'duel'},
+      {t:'리액션 배틀: 같은 대사로 연기, 채팅이 고른 진 사람 1모금',fx:'duel'},
+      {t:'채팅 퀴즈: 채팅이 낸 문제를 먼저 맞히는 사람 승리, 나머지 1모금',fx:'duel'},
+      {t:'채팅에 "짠" 10개 넘으면 다 같이 1모금',fx:'both1'},
+      {t:'시청자랑 동시에 건배: 셋 세고 채팅 "짠"과 함께 다 같이 1모금',fx:'both1'},
+      {t:'다음 채팅 메시지를 감정 꽉 채워 읽기',fx:'mission'},
+      {t:'채팅이 정한 포즈로 아바타 10초 버티기',fx:'mission'},
+      {t:'시청자가 정한 건배사 외치기',fx:'mission'},
+      {t:'채팅이 고른 사람에게 영상 편지 15초',fx:'mission'},
+      {t:'시청자 3명 골라 즉석 칭찬',fx:'mission'},
+      {t:'채팅이 정한 단어 3개로 즉석 랩',fx:'mission'},
+      {t:'채팅에서 제일 웃긴 닉네임으로 3턴 동안 불리기',fx:'mission'},
+      {t:'채팅 질문 1개에 무조건 답하기 (신상 제외), 패스하면 2모금',fx:'mission2'}
+    ],
+    bal:[
+      ['방송 내내 채팅 읽기만','채팅 안 보고 방송'],['시청자 1명 소원 크게','시청자 100명 소원 작게'],['후원 메시지 노래로 읽기','후원 메시지 랩으로 읽기'],['평생 소주','평생 맥주'],
+      ['부먹','찍먹'],['고양이','강아지'],['오늘 밤새 방송','내일 아침 7시 방송'],['채팅이 내 옷 정하기','채팅이 내 메뉴 정하기'],
+      ['노래방 100점','댄스 100점'],['술자리 분위기 메이커','술자리 리스너'],['첫눈에 반하기','정들어서 좋아지기'],['연애 공개','비밀 연애'],
+      ['꼬들한 라면','퍼진 라면'],['매운 안주','단 안주'],['합방 상대 고정','매번 새로운 합방'],['흑역사 클립 박제 1개','다시보기 통째로 삭제']
+    ],
+    truth:[
+      '지금 채팅에 올라온 질문 아무거나 하나','시청자에게 제일 고마웠던 순간','방송하면서 본 최고의 채팅','방송 중 제일 당황한 순간',
+      '시청자들한테 숨겨 온 습관 하나','우리 시청자 특징을 한 마디로','방송 끝나고 제일 먼저 하는 것','방송 중 몰래 먹은 것',
+      '악플 vs 무플, 더 힘든 쪽은?','시청자에게 한 귀여운 거짓말 하나','다음에 해 보고 싶은 콘텐츠','방송 이름을 이렇게 지은 이유',
+      '팬아트 받았을 때 기분','방송 켜기 전 루틴','여기 있는 사람 방송의 매력 포인트','오늘 방송 점수는 몇 점?'
+    ],
+    opts:['채팅을 "손님"이라고 부르기','채팅 읽을 때 성우 톤','영어 금지','존댓말만 쓰기','"아니" 금지','문장 끝에 "냥" 붙이기','채팅 읽을 때마다 "감사합니다~"','사투리로만 말하기','웃음 금지','"진짜" 금지'],
+    cat:['술 이름','안주','유행어','밈','게임 이름','노래 제목','아무 단어'],
+    final:[
+      '채팅이 정한 벌칙 1개 (선 넘으면 다시 뽑기)','시청자 신청곡 한 소절 (저작권 조심)','채팅이 정한 말투로 방송 엔딩','시청자 닉네임 10개 불러 주며 감사 인사',
+      '채팅이 고른 사람에게 영상 편지 1분','다음 방송 썸네일 문구를 채팅이 결정','채팅 질문 5개 무조건 답하기 (신상 제외)','채팅이 정한 컨셉으로 다음 방송 오프닝'
+    ],
+    desc:{
+      truth:{b:'채팅에 올라온 질문 중 하나를 골라 답해요. 거부하면 2모금. 신상 질문은 벌주 없이 패스.'},
+      option:{b:'채팅이 금지어를 바꿔도 돼요. 다 같이 3턴 동안 지키고, 어기면 그때마다 1모금 (계산서의 +1모금으로 기록).'},
+      song:{t:'채팅 신청곡 한 소절!',b:'채팅 신청곡 중 {상대}이(가) 골라요. 딱 한 소절만! 길게 부르면 다시보기가 음소거될 수 있어요. 허밍도 인정.'},
+      balance:{b:'채팅에 1 또는 2로 투표받는 동안, 다들 "채팅이 더 많이 고를 쪽"을 예측해요. 틀린 사람 1모금.'}
+    }
+  },
+  friends:{name:'절친 폭로전', tag:'친한 사이끼리', sub:'1~6인 · 한 모금 룰 · 절친 폭로전',
+    cells:{
+      1:{toll:'주인 장점 3개 5초 안에'},
+      3:{toll:'주인과의 첫 만남 썰'},
+      7:{toll:'주인 말투 따라 하기 10초'},
+      8:{n:'폭로 타임',d:'서로에 대해 솔직하게'},
+      13:{toll:'주인 흑역사 하나 (본인이 허락하는 선에서)'},
+      15:{toll:'주인에게 서운했던 것 하나 털어놓기'},
+      17:{toll:'3턴 동안 주인을 "형님" 또는 "언니"라고 부르기'},
+      21:{toll:'주인 몰래 했던 것 하나 고백'},
+      27:{toll:'주인에게 진심 우정 고백 20초'}
+    },
+    keys:[
+      {t:'이미지 게임: "여기서 제일 먼저 결혼할 것 같은 사람" 동시 지목, 최다 득표 1모금',fx:'duel'},
+      {t:'우정 퀴즈: 서로의 최애 안주 맞히기, 틀린 사람 1모금',fx:'duel'},
+      {t:'흑역사 폭로전: 번갈아 하나씩, 먼저 막히는 사람 1모금',fx:'duel'},
+      {t:'성대모사 배틀: 서로 따라 하기, 채팅 투표로 진 사람 1모금',fx:'duel'},
+      {t:'손병호 우정판: "친구 과자 몰래 먹어 본 사람 접어" 식으로, 먼저 다 접는 사람 1모금',fx:'duel'},
+      {t:'우정 건배: 다 같이 "평생 가자!" 외치고 1모금',fx:'both1'},
+      {t:'지목한 사람 단점을 장점처럼 포장해서 말하기',fx:'mission'},
+      {t:'지목한 사람에게 꼭 하고 싶었던 잔소리 하나',fx:'mission'},
+      {t:'우리 우정을 술 종류에 비유하고 이유 말하기',fx:'mission'},
+      {t:'지목한 사람 성대모사로 다음 방송 예고 10초',fx:'mission'},
+      {t:'지목한 사람의 술버릇 재연',fx:'mission'},
+      {t:'지목한 사람에게 10년 뒤에 보내는 편지 15초',fx:'mission'},
+      {t:'여기서 제일 의지하는 사람과 이유, 패스하면 2모금',fx:'mission2'},
+      {t:'친구랑 크게 싸웠던 썰, 패스하면 2모금',fx:'mission2'}
+    ],
+    bal:[
+      ['친구가 내 전 애인과 연애','친구가 내 짝사랑과 연애'],['친구가 내 비밀 폭로','친구가 내 흑역사 사진 공개'],['평생 친구 1명','적당한 친구 100명'],['친구와 동업','친구와 같이 살기'],
+      ['여행 계획 다 짜는 친구','계획 없이 따라오는 친구'],['돈 빌려 달라는 친구','연애 상담 매일 하는 친구'],['친구 결혼식 축가','친구 결혼식 사회'],['친구랑 같은 사람 좋아하기','친구가 나를 좋아하기'],
+      ['취하면 우는 친구','취하면 사라지는 친구'],['연락 매일 하는 친구','연락은 없어도 만나면 찐친'],['친구 생일 깜빡하기','내 생일을 친구가 깜빡하기'],['남사친·여사친 인정','절대 불가'],
+      ['소주','맥주'],['친구 앞에서 노래방 100점','친구 앞에서 몸치 댄스'],['비밀 하나 공유하는 사이','비밀 없는 사이'],['합방 매주','여행 1년에 한 번']
+    ],
+    truth:[
+      '여기 있는 사람 첫인상 vs 지금','여기 있는 사람 중 제일 의외인 사람','서로에게 제일 고마웠던 순간','여기 있는 사람에게 질투 난 적 있어?',
+      '친구에게 한 제일 큰 거짓말 (귀여운 걸로)','여기서 연락 제일 자주 하는 사람','친구 때문에 울어 본 적 있어?','여기서 제일 먼저 결혼할 것 같은 사람',
+      '친구 사이에 절대 못 참는 행동','여기 있는 사람에게 몰래 서운했던 것','나만 아는 여기 누군가의 귀여운 습관','여기 있는 사람이랑 가고 싶은 여행지',
+      '친구에게 받은 최고의 선물','여기서 술 제일 약할 것 같은 사람','우리가 처음 친해진 계기','10년 뒤 우리는 뭐 하고 있을까?'
+    ],
+    opts:['서로 "친구야"라고 부르기','존댓말만 쓰기','"아니" 금지','영어 금지','웃음 금지','말끝마다 "ㅇㅈ?"','사투리로만 말하기','"술" 이라는 말 금지','"진짜" 금지','이름 대신 별명만'],
+    cat:['술 이름','안주','친구랑 가고 싶은 곳','노래 제목','과자 이름','게임 이름','아무 단어'],
+    final:[
+      '승자 장점 10개 연속','승자에게 우정 영상 편지 1분','승자가 정한 별명으로 일주일 불리기','승자 방송에 출연해서 리액션 해 주기',
+      '승자가 정한 말투로 다음 방송 오프닝','"네 흑역사는 내가 지킨다" 맹세문 낭독','승자가 고른 노래 한 소절 (저작권 조심)','승자 이름 3행시 헌정 + 클립 박제 허락'
+    ],
+    desc:{
+      truth:{t:'폭로 타임!',b:'서로에 대해 솔직하게 답해요. 거부하면 2모금. 당사자가 싫다는 폭로와 신상 질문은 벌주 없이 패스.'}
+    }
+  }
+};
+const THEMES = {dakku:'다꾸 스티커', pocha:'포장마차', winter:'겨울 눈꽃', neon:'네온 밤', retro:'레트로 게임'};
+const THEME_SW = {dakku:['#ffb3c7','#fff0a3','#b9ddff'], pocha:['#ff5a36','#ffcf8a','#e8473a'], winter:['#4f97ff','#bfe2ff','#ffffff'], neon:['#ff3d8b','#21c8f5','#130d22'], retro:['#b3d66a','#f1e47a','#1f2b16']};
+const BASE = JSON.parse(JSON.stringify({cells:CELLS, keys:KEYS, bal:BAL, truth:TRUTH, opts:OPTS, cat:CAT, final:FINAL, desc:DESC}));
+let KEYS_FX = KEYS.map(k => k.fx);
+let DEF = JSON.parse(JSON.stringify({cells:CELLS, keys:KEYS.map(k=>k.t), bal:BAL, truth:TRUTH, opts:OPTS, cat:CAT, final:FINAL, desc:DESC}));
+let PACK = 'base';
+function packTexts(id){
+  const T = JSON.parse(JSON.stringify(BASE)), P = PACKS[id];
+  if (!P || id==='base') return T;
+  if (P.cells) Object.keys(P.cells).forEach(i => Object.assign(T.cells[i], P.cells[i]));
+  if (P.keys) T.keys = T.keys.slice(0, PACK_MECH).concat(JSON.parse(JSON.stringify(P.keys)));
+  ['bal','truth','opts','cat','final'].forEach(k => { if (P[k]) T[k] = JSON.parse(JSON.stringify(P[k])); });
+  if (P.desc) Object.keys(P.desc).forEach(k => Object.assign(T.desc[k], P.desc[k]));
+  return T;
+}
+function loadPack(id){
+  if (!PACKS[id]) id = 'base';
+  PACK = id;
+  const T = packTexts(id);
+  CELLS.forEach((c,i) => { Object.keys(c).forEach(k => delete c[k]); Object.assign(c, T.cells[i]); });
+  setArr(KEYS, T.keys); setArr(BAL, T.bal); setArr(TRUTH, T.truth); setArr(OPTS, T.opts); setArr(CAT, T.cat); setArr(FINAL, T.final);
+  Object.keys(DESC).forEach(k => delete DESC[k]); Object.assign(DESC, T.desc);
+  KEYS_FX = KEYS.map(k => k.fx);
+  DEF = JSON.parse(JSON.stringify({cells:CELLS, keys:KEYS.map(k=>k.t), bal:BAL, truth:TRUTH, opts:OPTS, cat:CAT, final:FINAL, desc:DESC}));
+  applyTexts(loadTexts());
+}
+const textKey = () => PACK==='base' ? 'jurumarble-texts' : 'jurumarble-texts-'+PACK;
 function fmt(t){ return String(t||'').replaceAll('{나}', cur().name).replaceAll('{상대}', opp().name); }
 function setArr(a, v){ a.splice(0, a.length, ...v); }
 function applyTexts(T){
@@ -793,9 +1145,23 @@ function applyTexts(T){
   if (T.desc) Object.keys(T.desc).forEach(k => { if (DESC[k]) Object.assign(DESC[k], T.desc[k]); });
 }
 function currentTexts(){ return {cells:CELLS.map(c => ({k:c.k,n:c.n,d:c.d,toll:c.toll,p:c.p})), keys:KEYS.map(k=>k.t), bal:BAL, truth:TRUTH, opts:OPTS, cat:CAT, final:FINAL, desc:DESC}; }
-function saveTexts(){ try { localStorage.setItem('jurumarble-texts', JSON.stringify(currentTexts())); } catch(e){} }
-function loadTexts(){ try { return JSON.parse(localStorage.getItem('jurumarble-texts')); } catch(e){ return null; } }
-applyTexts(loadTexts());
+function saveTexts(){ try { localStorage.setItem(textKey(), JSON.stringify(Object.assign({v:TEXT_VER}, currentTexts()))); } catch(e){} }
+const TEXT_VER = 5;
+function loadTexts(){ try { const t = JSON.parse(localStorage.getItem(textKey())); return t && t.v===TEXT_VER ? t : null; } catch(e){ return null; } }
+let THEME = 'dakku';
+function applyTheme(t){ if (!THEMES[t]) t = 'dakku'; THEME = t; document.documentElement.dataset.theme = t; }
+(function(){
+  let id = 'base', th = 'dakku';
+  try {
+    const sv = JSON.parse(localStorage.getItem('jurumarble-save')), pr = JSON.parse(localStorage.getItem('jurumarble-prefs')) || {};
+    id = (sv && sv.begun ? (sv.pack || 'base') : pr.pack) || 'base';
+    th = (sv && sv.theme) || pr.theme || 'dakku';
+    const q = new URLSearchParams(location.search);
+    if (PACKS[q.get('pack')]) id = q.get('pack');
+    if (THEMES[q.get('theme')]) th = q.get('theme');
+  } catch(e){}
+  loadPack(id); applyTheme(th);
+})();
 
 
 const $ = s => document.querySelector(s);
@@ -835,7 +1201,7 @@ function fresh(){
     players: act.map(mk),
     turn:0, owners:{}, phase:'roll', ev:null, dice:[3,4], doubles:0, extra:false, pq:[],
     opts:[], log:[`게임 시작! ${act.length}명 참가. 같은 술로 맞추고, 물부터 한 컵 떠 두세요.`], maxLaps: pr.laps||3,
-    custom: pr.custom||[], perGlass: pr.pg||3, finish:false, result:null, started:false, begun:false
+    custom: pr.custom||[], perGlass: pr.pg||3, finish:false, result:null, started:false, begun:false, pack:PACK, theme:THEME
   };
   S.deck = shuffle([...allKeys().keys()]);
   if (keep){ S.seq = keep.seq; S.online = keep.online; S.lastRoll = {seq:keep.lr}; S.lastFx = {seq:keep.lf}; S.seats = {}; }
@@ -1019,6 +1385,8 @@ function render(){
   nameEditable();
   $('#log').innerHTML = S.log.map(m => `<li>${esc(m)}</li>`).join('');
   $('#lapsTxt').textContent = S.maxLaps;
+  if (S.theme && S.theme!==THEME) applyTheme(S.theme);
+  if (S.pack && PACKS[S.pack] && S.pack!==PACK && ON.ref && !ON.host) PACK = S.pack;
   renderStart();
   renderOnline();
   detectDrinks();
@@ -1095,6 +1463,7 @@ function eventHtml(){
       return `<div class="kind">${esc(c.n)}</div><h3>${esc(fmt(DESC.water.t))}</h3><p>${esc(fmt(DESC.water.b))}</p><div class="acts">${btn('물 마셨다','waterAll','good')}</div>`;
     case 'taxi':
       return `<div class="kind">${esc(CELLS[23].n)}</div><h3>${esc(fmt(DESC.taxi.t))}</h3><p>${esc(fmt(DESC.taxi.b))}</p><div class="acts">${btn('안 타기','ok','soft')}</div>`;
+    case 'mini': return miniHtml(ev);
     case 'penalty': {
       const pl = S.players[ev.pi], oo = S.players.map((_,i)=>i).filter(i => i!==ev.pi);
       return `<div class="kind">벌주</div><h3>${esc(pl.name)} ${ev.n}모금</h3><p>${esc(ev.reason)}</p>
@@ -1230,7 +1599,8 @@ const FX = {
   point:{t:'한 잔 받아!', s:'slide', g:['➜','➜','➜'], c:'#ff9f43', n:9},
   jail:{t:'블랙홀!', s:'swirl', g:['✦','★','·','✧'], c:'#6a4c9c', n:26},
   service:{t:'SAFE!', s:'stamp', g:['✓','★'], c:'#4fc7c0'},
-  taxi:{t:'택시 호출!', s:'slide', g:['TAXI','▶','TAXI'], c:'#f3c450', n:6}
+  taxi:{t:'택시 호출!', s:'slide', g:['TAXI','▶','TAXI'], c:'#f3c450', n:6},
+  mini:{t:'미니게임!', s:'burst', g:['★','?','!','♪'], c:'#8fd8a8', n:24}
 };
 async function showLand(kind, i){
   const cell = $('#cell'+i);
@@ -1289,6 +1659,7 @@ async function land(){
     case 'toast': ev = {kind:'toast'}; break;
     case 'cocktail': ev = {kind:'cocktail'}; break;
     case 'point': ev = {kind:'point'}; break;
+    case 'mini': ev = {kind:'mini', mini: newMini()}; break;
     case 'jail': toJail(p); log(`${p.name} 블랙홀 도착`); ev = {kind:'info',tag:c.n,title:fmt(DESC.jail.t),body:fmt(DESC.jail.b)}; break;
     case 'service': p.passes++; log(`${p.name} ${c.n}: 패스카드 +1`); ev = {kind:'info',tag:c.n,title:fmt(DESC.service.t),body:fmt(DESC.service.b)}; break;
     case 'taxi': ev = {kind:'taxi'}; S.ev = ev; S.phase = 'taxi'; return render();
@@ -1350,6 +1721,7 @@ async function act(a){
     case 'give': { const t = +x, mine = Object.keys(S.owners).filter(k => S.owners[k]===pi); const k = pick(mine); S.owners[k] = t; log(`${p.name}이(가) ${CELLS[k].n}을(를) ${S.players[t].name}에게 기부`); return done(); }
     case 'swap': { const o = S.players[+x], t = p.pos; p.pos = o.pos; o.pos = t; log(`${p.name} ↔ ${o.name} 자리 바꾸기`); return done(); }
     case 'key': return applyKey(ev.card.fx);
+    case 'mini': return miniAct(x, y);
   }
 }
 
@@ -1429,10 +1801,112 @@ document.addEventListener('click', e => {
 });
 $('#roll').addEventListener('click', roll);
 document.addEventListener('keydown', e => {
-  if (e.code==='Space' && !e.target.isContentEditable && !e.target.closest('input,textarea,select,button') && !$('#modal').classList.contains('open')){ e.preventDefault(); roll(); }
-  if (e.key==='Escape'){ closeCellEditor(); $('#modal').classList.remove('open'); if (!window.obsstudio) setObs(false); }
+  if (e.code==='Space' && !e.target.isContentEditable && !e.target.closest('input,textarea,select,button') && !$('#modal').classList.contains('open') && !$('#edModal').classList.contains('open')){ e.preventDefault(); roll(); }
+  if (e.key==='Escape'){ closeCellEditor(); $('#modal').classList.remove('open'); $('#edModal').classList.remove('open'); if (!window.obsstudio) setObs(false); }
 });
 $('#newGame').addEventListener('click', () => { fresh(); render(); });
+
+/* ---------- 미니게임 ---------- */
+const MINI_NAMES = {pour:'소주잔 채우기', roulette:'벌주 룰렛', cups:'야바위'};
+let MINI_RT = {raf:0, t0:0, val:0};
+function newMini(){
+  const g = pick(['pour','roulette','cups']);
+  if (g==='cups') return {g, st:'ready', ball: Math.floor(Math.random()*3), order:[0,1,2]};
+  return {g, st:'ready'};
+}
+function miniSegs(){ return S.players.map((p,i) => ({name:p.name, color:p.color, i})).concat([{name:'SAFE', color:'#e9e1cf', i:-1}]); }
+function miniHtml(ev){
+  const m = ev.mini, p = cur();
+  const head = `<div class="kind">미니게임</div><h3>${MINI_NAMES[m.g]}</h3>`;
+  const res = m.st==='done' ? `<p class="q">${esc(m.msg)}</p><div class="acts">${btn('확인','mini:ok', m.fail ? 'bad' : 'good')}</div>` : '';
+  if (m.g==='pour'){
+    const v = m.st==='done' ? m.val : 0;
+    return head + `<p>${esc(p.name)}이(가) 잔을 따라요. 초록 선 사이에서 멈추면 성공, 못 맞추면 1모금, 넘치면 2모금.</p>
+      <div class="pour"><div class="pglass"><div class="pband"></div><div class="pfill" style="height:${v}%"></div></div></div>
+      ${m.st==='ready' ? `<div class="acts">${btn('따르기 시작','mini:start','good')}</div>` : m.st==='running' ? `<div class="acts">${btn('멈춰!','mini:stop','bad')}</div>` : res}`;
+  }
+  if (m.g==='roulette'){
+    const segs = miniSegs(), n = segs.length, step = 360/n;
+    const grad = segs.map((g,k) => `${g.color} ${k*step}deg ${(k+1)*step}deg`).join(',');
+    const labels = segs.map((g,k) => `<span class="rl" style="transform:rotate(${k*step+step/2}deg) translateY(-92px) rotate(${-(k*step+step/2)}deg)">${esc(g.name)}</span>`).join('');
+    const ang = m.angle || 0;
+    return head + `<p>돌림판이 멈춘 사람이 1모금. SAFE에 멈추면 다들 무사!</p>
+      <div class="roul"><div class="rpin"></div><div class="rwheel${m.st==='spinning'?' spin':''}" data-angle="${ang}" style="background:conic-gradient(${grad});transform:rotate(${m.st==='spinning'?0:ang}deg)">${labels}</div></div>
+      ${m.st==='ready' ? `<div class="acts">${btn('돌리기','mini:spin','good')}</div>` : res}`;
+  }
+  // cups
+  const cups = [0,1,2].map(c => {
+    const slot = m.order.indexOf(c);
+    const show = m.st==='show' || m.st==='done';
+    return `<button class="cup${show && c===m.ball ? ' hasball' : ''}${m.st==='done' && c===m.picked ? ' picked' : ''}" data-cup="${c}" style="--x:${slot*110}px" ${m.st==='pick' ? `data-a="mini:pick:${c}"` : 'tabindex="-1"'}><span class="ball"></span></button>`;
+  }).join('');
+  return head + `<p>소주가 든 컵을 잘 보세요. 섞은 뒤 맞히면 성공, 틀리면 1모금.</p>
+    <div class="cups">${cups}</div>
+    ${m.st==='ready' ? `<div class="acts">${btn('섞기 시작','mini:shuffle','good')}</div>` : m.st==='pick' ? '<p class="selq">컵을 눌러 고르세요</p>' : m.st==='done' ? res : ''}`;
+}
+async function miniAct(x, y){
+  const ev = S.ev, m = ev && ev.mini; if (!m) return;
+  const p = cur();
+  if (x==='start' && m.g==='pour' && m.st==='ready'){
+    m.st = 'running'; render();
+    MINI_RT.t0 = performance.now();
+    const loop = now => {
+      const t = ((now - MINI_RT.t0) / 1300) % 2;
+      MINI_RT.val = Math.round((t < 1 ? t : 2 - t) * 1000) / 10;
+      document.querySelectorAll('.pfill').forEach(f => f.style.height = MINI_RT.val + '%');
+      if (m.st==='running') MINI_RT.raf = requestAnimationFrame(loop);
+    };
+    MINI_RT.raf = requestAnimationFrame(loop);
+    return;
+  }
+  if (x==='stop' && m.g==='pour' && m.st==='running'){
+    cancelAnimationFrame(MINI_RT.raf);
+    const v = MINI_RT.val; m.val = v; m.st = 'done';
+    if (v >= 72 && v <= 86){ m.fail = 0; m.msg = `${Math.round(v)}%! 완벽하게 따랐어요. 무사 통과`; }
+    else if (v > 86){ m.fail = 2; m.msg = `${Math.round(v)}%! 넘쳤어요. ${p.name} 2모금`; }
+    else { m.fail = 1; m.msg = `${Math.round(v)}%... 너무 적어요. ${p.name} 1모금`; }
+    return render();
+  }
+  if (x==='spin' && m.g==='roulette' && m.st==='ready'){
+    const segs = miniSegs(), n = segs.length, step = 360/n;
+    const k = Math.floor(Math.random()*n);
+    m.target = k;
+    m.angle = 360*5 + (360 - (k*step + step/2)) + (Math.random()*step*0.6 - step*0.3);
+    m.st = 'spinning'; render();
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.querySelectorAll('.rwheel.spin').forEach(w => { w.style.transform = `rotate(${m.angle}deg)`; });
+    }));
+    await sleep(reduced ? 0 : 3300);
+    const g = segs[k];
+    m.st = 'done';
+    if (g.i < 0){ m.fail = 0; m.msg = 'SAFE! 이번엔 아무도 안 마셔요'; }
+    else { m.fail = 1; m.who = g.i; m.msg = `${g.name} 당첨! 1모금`; }
+    return render();
+  }
+  if (x==='shuffle' && m.g==='cups' && m.st==='ready'){
+    m.st = 'show'; render();
+    await sleep(900);
+    m.st = 'shuffling'; render();
+    for (let k=0;k<8;k++){
+      const a = Math.floor(Math.random()*3); let b = Math.floor(Math.random()*2); if (b>=a) b++;
+      const o = m.order.slice(); [o[a], o[b]] = [o[b], o[a]]; m.order = o;
+      document.querySelectorAll('.cup').forEach(c => { const id = +c.dataset.cup; c.style.setProperty('--x', (m.order.indexOf(id)*110)+'px'); });
+      await sleep(reduced ? 0 : 330);
+    }
+    m.st = 'pick'; return render();
+  }
+  if (x==='pick' && m.g==='cups' && m.st==='pick'){
+    const c = +y; m.picked = c; m.st = 'done';
+    if (c===m.ball){ m.fail = 0; m.msg = '정답! 소주 컵을 찾았어요. 무사 통과'; }
+    else { m.fail = 1; m.msg = `꽝! ${p.name} 1모금`; }
+    return render();
+  }
+  if (x==='ok' && m.st==='done'){
+    const reason = '미니게임: ' + MINI_NAMES[m.g];
+    if (!m.fail) return done();
+    return penalize(m.g==='roulette' ? m.who : S.turn, m.fail, reason);
+  }
+}
 
 /* ---------- 마시는 모션 ---------- */
 let LASTD = null, drinkChain = Promise.resolve();
@@ -1784,6 +2258,11 @@ function renderStart(){
   $('#stPool').innerHTML = ROSTER.map((c,k) => `<button class="st-pick${c.on?' on':''}" style="--pc:${c.color}" data-sp="${k}" aria-pressed="${c.on}" ${!c.on && onN>=MAXP ? 'disabled' : ''}>${c.img ? `<img class="${c.pix?'pix':''}" src="${c.img}" alt="">` : `<span class="initial" style="background:${c.color}">${esc(c.name.slice(0,1))}</span>`}${esc(c.name)}</button>`).join('');
   $('#stLaps').value = String(S.maxLaps);
   $('#stLaps').disabled = !!S.begun;
+  const guest = !!(ON.ref && !ON.host), pk = S.pack || PACK;
+  $('#stPack').innerHTML = Object.keys(PACKS).map(k => `<button class="vo${k===pk?' on':''}" data-pack="${k}" role="radio" aria-checked="${k===pk}" ${(S.begun||guest)&&k!==pk?'disabled':''}><b>${esc(PACKS[k].name)}</b><small>${esc(PACKS[k].tag)}</small></button>`).join('');
+  $('#stTheme').innerHTML = Object.keys(THEMES).map(k => `<button class="vo${k===THEME?' on':''}" data-theme="${k}" role="radio" aria-checked="${k===THEME}" ${guest&&k!==THEME?'disabled':''}><b>${esc(THEMES[k])}</b><span class="sw">${THEME_SW[k].map(c => `<i style="background:${c}"></i>`).join('')}</span></button>`).join('');
+  $('#stVerNote').textContent = guest ? '판 종류와 디자인은 방장이 정해요' : (S.begun ? '판 종류는 새 게임부터 바꿀 수 있어요' : '');
+  $('#stSub').textContent = (PACKS[pk] || PACKS.base).sub;
   $('#stGo').textContent = S.begun ? '이어하기' : '게임 시작!';
   $('#stNew').hidden = !S.begun;
   const changed = S.begun && ROSTER.filter(c => c.on).slice(0,MAXP).map(c => c.id).join(',') !== S.players.map(p => p.id).join(',');
@@ -1807,6 +2286,22 @@ $('#toMain').addEventListener('click', toMain);
 $('#toMain2').addEventListener('click', toMain);
 $('#stLaps').addEventListener('change', e => { S.maxLaps = +e.target.value; const pr = loadPrefs(); pr.laps = S.maxLaps; savePrefs(pr); render(); });
 $('#stSet').addEventListener('click', () => $('#openSet').click());
+$('#stPack').addEventListener('click', e => {
+  const bt = e.target.closest('[data-pack]'); if (!bt || bt.disabled) return;
+  if (S.begun || (ON.ref && !ON.host)) return;
+  const v = bt.dataset.pack; if (v===PACK) return; loadPack(v);
+  const pr = loadPrefs(); pr.pack = PACK; savePrefs(pr);
+  fresh();
+  CELLS.forEach((c,i) => { const el = $('#cell'+i); if (el) el.className = cellClass(i); });
+  renderRules(); fillEditor(); render();
+});
+$('#stTheme').addEventListener('click', e => {
+  const bt = e.target.closest('[data-theme]'); if (!bt || bt.disabled) return;
+  if (ON.ref && !ON.host) return;
+  applyTheme(bt.dataset.theme); S.theme = THEME;
+  const pr = loadPrefs(); pr.theme = THEME; savePrefs(pr);
+  render();
+});
 $('#stGo').addEventListener('click', async () => {
   const st = $('#start'); st.classList.add('out');
   await sleep(430); st.classList.remove('out');
@@ -1894,21 +2389,19 @@ $('#saveSet').addEventListener('click', () => {
 });
 
 function renderRules(){
-  $('#landTbl tbody').innerHTML = CELLS.map((c,i) => c.k==='land' ? `<tr><td class="num">${i}</td><td>${esc(c.n)}</td><td class="num">${c.p}모금</td><td>${esc(c.toll)}</td></tr>` : '').join('');
-  const ks = allKeys();
-  $('#keyCount').textContent = `${ks.length}장`;
-  $('#keyList').innerHTML = ks.map(k => `<li>${esc(k.t)}</li>`).join('');
-  $('#finalList').innerHTML = FINAL.map(f => `<li>${esc(f)}</li>`).join('');
+  const n = $('#edKeysN'); if (n) n.textContent = `(${allKeys().length}장)`;
 }
 
 /* ---------- 텍스트 편집 ---------- */
 let EDIT = false;
-const KIND_NAME = {start:'출발',land:'안주',key:'황금열쇠',balance:'밸런스',truth:'진실',chosung:'초성',option:'금지어',love:'러브샷',song:'노래방',water:'물',toast:'건배사',cocktail:'칵테일',point:'술 권하기',jail:'블랙홀',service:'SAFE',taxi:'택시'};
+const KIND_NAME = {start:'출발',land:'안주',key:'황금열쇠',mini:'미니게임',balance:'밸런스',truth:'진실',chosung:'초성',option:'금지어',love:'러브샷',song:'노래방',water:'물',toast:'건배사',cocktail:'칵테일',point:'술 권하기',jail:'블랙홀',service:'SAFE',taxi:'택시'};
 function fillEditor(){
-  $('#edCells').innerHTML = CELLS.map((c,i) => `<tr><td class="num">${i}</td><td class="kindtag">${CORNERS.includes(i) ? (KIND_NAME[c.k]||c.k) : `<select id="eck${i}" aria-label="${i}번 종류">${EDITABLE_K.map(k=>`<option value="${k}"${k===c.k?' selected':''}>${KIND_NAME[k]}</option>`).join('')}</select>`}</td>
-    <td><input id="ecn${i}" value="${esc(c.n)}" aria-label="${i}번 칸 이름"></td>
-    <td>${c.k==='key' ? '<span class="hint">카드 뽑기</span>' : `<input id="ecd${i}" value="${esc(c.k==='land'?c.toll:(c.d||''))}" aria-label="${i}번 칸 설명">`}</td>
-    <td>${c.k==='land' ? `<select id="ecp${i}" aria-label="${i}번 가격">${[1,2,3].map(v=>`<option value="${v}"${v===c.p?' selected':''}>${v}모금</option>`).join('')}</select>` : ''}</td></tr>`).join('');
+  $('#edCells').innerHTML = CELLS.map((c,i) => `<div class="ecard k-${c.k}">
+    <div class="ec-h"><span class="ec-no">${i}</span>${CORNERS.includes(i) ? `<span class="kindtag">${KIND_NAME[c.k]||c.k}</span>` : `<select id="eck${i}" aria-label="${i}번 종류">${EDITABLE_K.map(k=>`<option value="${k}"${k===c.k?' selected':''}>${KIND_NAME[k]}</option>`).join('')}</select>`}
+      ${c.k==='land' ? `<select id="ecp${i}" aria-label="${i}번 가격">${[1,2,3].map(v=>`<option value="${v}"${v===c.p?' selected':''}>${v}모금</option>`).join('')}</select>` : ''}</div>
+    <input id="ecn${i}" class="ec-name" value="${esc(c.n)}" aria-label="${i}번 칸 이름">
+    ${c.k==='key' ? '<span class="hint">카드를 뽑는 칸이에요</span>' : `<textarea id="ecd${i}" rows="2" aria-label="${i}번 칸 설명" placeholder="${c.k==='land'?'통행료 미션':'칸에 보이는 설명'}">${esc(c.k==='land'?(c.toll||''):(c.d||''))}</textarea>`}
+  </div>`).join('');
   $('#edKeys').value = KEYS.map(k=>k.t).join('\n');
   $('#edBal').value = BAL.map(q=>q.join(' / ')).join('\n');
   $('#edTruth').value = TRUTH.join('\n');
@@ -1945,7 +2438,7 @@ $('#edApply').addEventListener('click', () => { applyTexts(readEditor()); afterT
 $('#edReset').addEventListener('click', () => {
   CELLS.forEach((c,i) => Object.assign(c, DEF.cells[i]));
   applyTexts(JSON.parse(JSON.stringify(DEF)));
-  try { localStorage.removeItem('jurumarble-texts'); } catch(e){}
+  try { localStorage.removeItem(textKey()); } catch(e){}
   afterTextChange('기본값으로 되돌렸어요');
 });
 $('#edExport').addEventListener('click', async () => {
@@ -1993,6 +2486,16 @@ document.addEventListener('focusout', e => {
 });
 document.addEventListener('keydown', e => { if (EDIT && e.key==='Enter' && e.target.isContentEditable){ e.preventDefault(); e.target.blur(); } }, true);
 
+function openEditor(){ fillEditor(); renderRules(); $('#edModal').classList.add('open'); }
+$('#openEd').addEventListener('click', openEditor);
+$('#gearEd').addEventListener('click', openEditor);
+$('#edClose').addEventListener('click', () => $('#edModal').classList.remove('open'));
+$('#edModal').addEventListener('click', e => {
+  const t = e.target.closest('.ed-tab'); if (!t) return;
+  document.querySelectorAll('.ed-tab').forEach(b => b.classList.toggle('on', b===t));
+  document.querySelectorAll('.ed-pane').forEach(p => p.classList.toggle('on', p.dataset.pane===t.dataset.tab));
+});
+
 /* ---------- OBS · 화면 맞춤 ---------- */
 function setObs(on){ document.documentElement.classList.toggle('obs', on); fit(); }
 function fit(){
@@ -2014,6 +2517,8 @@ function start(data){
     if (!(data && data.players)) S.started = false;
     if (S.phase==='moving') S.phase = S.ev ? 'event' : 'roll';
     S.pq = S.pq || [];
+    S.pack = S.pack || 'base'; if (S.begun && S.pack!==PACK) loadPack(S.pack); if (!S.begun) S.pack = PACK;
+    S.theme = S.theme || THEME; applyTheme(S.theme);
     S.players.forEach(p => { const c = ROSTER.find(r => r.id===p.id); if (c && /^캐릭터 [AB]$/.test(p.name)) p.name = c.name; });
   } else fresh();
   buildBoard(); render(); renderRules();
