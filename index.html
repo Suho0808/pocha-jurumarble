@@ -261,6 +261,7 @@ html.obs .cell::after{display:none}
 .st-online b{font-family:var(--display);font-weight:400;font-size:26px}
 .st-online input{font:inherit;font-size:24px;width:140px;text-transform:uppercase;letter-spacing:.2em;text-align:center;border:3px solid var(--ink);border-radius:12px;padding:4px 8px;background:var(--paper)}
 .st-online .ghost{font-size:20px;border-width:3px}
+.st-online .code.masked{letter-spacing:.05em;color:var(--soft)}
 .st-online .code{font-family:var(--display);font-size:40px;letter-spacing:.15em;background:var(--butter);padding:0 14px;border-radius:10px;box-shadow:3px 3px 0 #e9d06a}
 .on-msg{font-family:var(--hand);font-weight:700;color:#d94c74;font-size:22px}
 .on-note{font-family:var(--hand);font-weight:700;color:var(--soft);font-size:22px}
@@ -975,8 +976,10 @@ function render(){
   const p = cur();
   $('#turn').innerHTML = S.phase==='end' ? '게임 끝!' : `${face(p,'face')}<span style="color:color-mix(in srgb,${p.color} 75%,#000)">${esc(p.name)}</span> 차례`;
   $('#dice').innerHTML = S.dice.map(n => `<div class="die">${pips(n)}</div>`).join('');
-  $('#roll').disabled = S.phase!=='roll' || !canActFor(cur().id);
-  let hint = '스페이스바로도 굴릴 수 있어요';
+  const myTurn = canActFor(cur().id);
+  $('#roll').disabled = S.phase!=='roll' || !myTurn;
+  $('#roll').textContent = myTurn ? '굴리기!' : '기다리는 중';
+  let hint = ON.ref && !canActFor(p.id) ? `${p.name} 차례예요. ${p.name} 기기에서 굴려요` : '스페이스바로도 굴릴 수 있어요';
   if (S.phase==='roll' && p.skip>0) hint = `블랙홀 (남은 ${p.skip}턴) · 더블이면 탈출`;
   if (S.phase==='taxi') hint = '보드에서 갈 칸을 눌러요';
   if (S.phase==='event') hint = '카드를 처리하면 다음으로 넘어가요';
@@ -1466,12 +1469,13 @@ async function playDrinks(list){
 /* ---------- 온라인 대전 ---------- */
 const ON = {avail:null, db:null, user:null, me:null, code:null, ref:null, unsub:null, host:false, applying:false, pending:null, pushing:false, dirty:false, lastBody:'', status:'', timer:null};
 function canActFor(pid){
-  if (!ON.ref || ON.host) return true;
+  if (!ON.ref) return true;
   const seat = S.seats && S.seats[pid];
-  return !seat || seat===ON.me;
+  if (seat) return seat===ON.me;
+  return ON.host;
 }
 function canActNow(){
-  if (!ON.ref || ON.host) return true;
+  if (!ON.ref) return true;
   if (S.phase==='end') return true;
   if (canActFor(cur().id)) return true;
   return !!(S.ev && S.ev.kind==='penalty' && S.players[S.ev.pi] && canActFor(S.players[S.ev.pi].id));
@@ -1635,12 +1639,14 @@ function renderOnline(){
     }).join('');
     const cnt = (ON.ref && ON.ref.count) ? ` · 접속 ${ON.ref.count()}명` : '';
     const obsBtn = (ON.mode==='peer' && /^https?:/.test(location.protocol)) ? '<button class="ghost" data-on="obsurl">OBS 주소 복사</button>' : '';
-    box.innerHTML = `<b>방 코드</b><span class="code">${esc(ON.code)}</span><span class="on-note">${ON.host ? '친구에게 코드를 알려 주세요'+cnt : '참가했어요'}</span>${obsBtn}
+    const isObs = document.documentElement.classList.contains('obs');
+    const shown = ON.showCode && !isObs;
+    box.innerHTML = `<b>방 코드</b><span class="code${shown?'':' masked'}">${shown ? esc(ON.code) : '● ● ● ●'}</span>${isObs ? '' : `<button class="ghost" data-on="togglecode">${shown ? '가리기' : '보기'}</button><button class="ghost" data-on="copycode">코드 복사</button>`}<span class="on-note">${ON.host ? '코드는 방송 밖에서 알려 주세요'+cnt : '참가했어요'}</span>${obsBtn}
       <span>내 캐릭터:</span>${seats}<button class="ghost" data-on="leave">나가기</button>
       ${ON.status ? `<span class="on-msg">${esc(ON.status)}</span>` : ''}`;
   }
   if (chip){
-    if (ON.ref){ const me = myPlayer(); chip.hidden = false; chip.textContent = `온라인 ${ON.code} · ${me ? '나: '+me.name : '관전 중'}${ON.status ? ' · '+ON.status : ''}`; }
+    if (ON.ref){ const me = myPlayer(); chip.hidden = false; chip.textContent = `온라인 · ${me ? '나: '+me.name : '관전 중'}${ON.status ? ' · '+ON.status : ''}`; }
     else chip.hidden = true;
   }
 }
@@ -1651,6 +1657,10 @@ $('#stOnline').addEventListener('click', e => {
   if (b.dataset.on==='create') createRoom();
   if (b.dataset.on==='join') joinRoom($('#onCode').value);
   if (b.dataset.on==='leave') leaveRoom();
+  if (b.dataset.on==='togglecode'){ ON.showCode = !ON.showCode; renderOnline(); }
+  if (b.dataset.on==='copycode'){
+    (navigator.clipboard ? navigator.clipboard.writeText(ON.code) : Promise.reject()).then(() => { ON.status = '코드를 복사했어요. 방송 밖(디스코드 등)으로 보내 주세요'; renderOnline(); }, () => { ON.showCode = true; ON.status = '자동 복사가 막혀서 코드를 보여 줬어요. 화면이 방송에 나가지 않게 조심하세요'; renderOnline(); });
+  }
   if (b.dataset.on==='obsurl'){
     const url = location.origin + location.pathname + '?room=' + ON.code + '&obs=1';
     (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { ON.status = 'OBS 주소를 복사했어요. 브라우저 소스 URL에 붙여 넣으세요'; renderOnline(); }, () => { ON.status = url; renderOnline(); });
@@ -1723,7 +1733,7 @@ function loadPeerJs(){
   });
 }
 function myLocalId(){
-  try { let v = localStorage.getItem('jm-me'); if (!v){ v = 'p' + Math.random().toString(36).slice(2,10); localStorage.setItem('jm-me', v); } return v; }
+  try { let v = sessionStorage.getItem('jm-me'); if (!v){ v = 'p' + Math.random().toString(36).slice(2,10); sessionStorage.setItem('jm-me', v); } return v; }
   catch(e){ return 'p' + Math.random().toString(36).slice(2,10); }
 }
 async function initOnline(){
